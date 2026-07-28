@@ -1,0 +1,41 @@
+
+body {
+    background-color: var(--default-background-color);
+    color: var(--default-color);
+}
+
+.button {
+    color: var(--default-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    box-sizing: border-box;
+    padding: 0 20px;
+    border: 0;
+    cursor: pointer;
+    text-align: center;
+    white-space: initial;
+    -webkit-appearance: none;
+    background: var(--default-fire-gradient);
+}
+
+.steamish-navbar {
+    border-bottom: .1rem solid var(--default-orange-darker) !important;
+}
+
+.steamish-link {
+    color: var(--default-color);
+}
+
+.steamish-link:hover {
+    color: var(--default-orange-darker);
+}
+
+.steamish-link-active {
+    color: var(--default-orange-darker);
+}
+
+.actions-link {
+    font-size: 2rem;
+}
