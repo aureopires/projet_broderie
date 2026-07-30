@@ -1,4 +1,5 @@
-const Encore = require('@symfony/webpack-encore');
+const rawEncore = require('@symfony/webpack-encore');
+const Encore = rawEncore.default || rawEncore;
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -55,10 +56,9 @@ Encore
     //     config.plugins.push('@babel/a-babel-plugin');
     // })
 
-    // enables and configure @babel/preset-env polyfills
-    .configureBabelPresetEnv((config) => {
-        config.useBuiltIns = 'usage';
-        config.corejs = '3.38';
+    // enables and configure @babel/preset-env polyfills for Babel 8
+    .configureBabel((babelConfig) => {
+        babelConfig.plugins.push(['babel-plugin-polyfill-corejs3', { method: 'usage-global' }]);
     })
 
     .copyFiles({

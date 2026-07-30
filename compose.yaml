@@ -30,8 +30,10 @@ services:
       dockerfile: docker/Dockerfile
       target: node-dev
     working_dir: /var/www/html
+    user: "root"
     volumes:
       - ./:/var/www/html
+      - /var/www/html/node_modules
     command: sh -c "npm install && npm run watch"
     tty: true
 
