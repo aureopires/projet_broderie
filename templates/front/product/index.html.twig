@@ -1,0 +1,35 @@
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+    <h1>Nos Créations Brodées</h1>
+
+    <!-- Menu rápido de categorias -->
+    <div>
+        <h3>Catégories :</h3>
+        <ul>
+            {% for category in categories %}
+                <li>
+                    <a href="{{ path('app_category_show', {slug: category.slug}) }}">
+                        {{ category.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Lista de Produtos -->
+    <div class="products-grid">
+        {% for product in products %}
+            <div class="product-card">
+                <h3>
+                    <a href="{{ path('app_product_show', {slug: product.slug}) }}">
+                        {{ product.title }}
+                    </a>
+                </h3>
+                <p>{{ product.indicativePrice }} €</p>
+            </div>
+        {% else %}
+            <p>Aucun produit disponible pour le moment.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

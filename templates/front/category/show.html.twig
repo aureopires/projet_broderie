@@ -1,0 +1,27 @@
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+    <h1>{{ category.name }}</h1>
+    <p>{{ category.description }}</p>
+
+    <h2>Produits dans cette catégorie :</h2>
+    <div class="products-grid">
+        {# Graças ao relacionamento ManyToMany, podemos acessar os produtos da categoria diretamente! #}
+        {% for product in category.products %}
+            <div class="product-card">
+                <h3>
+                    <a href="{{ path('app_product_show', {slug: product.slug}) }}">
+                        {{ product.title }}
+                    </a>
+                </h3>
+                <p>{{ product.indicativePrice }} €</p>
+            </div>
+        {% else %}
+            <p>Aucun produit n'est associé à cette catégorie pour le moment.</p>
+        {% endfor %}
+    </div>
+
+    <p style="margin-top: 20px;">
+        <a href="{{ path('app_category_index') }}">← Retour à la liste des catégories</a>
+    </p>
+{% endblock %}

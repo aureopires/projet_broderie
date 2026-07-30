@@ -1,0 +1,24 @@
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+    <h1>Toutes nos Catégories de Broderie</h1>
+
+    <div class="categories-grid">
+        {% for category in categories %}
+            <div class="category-card">
+                <h3>
+                    <a href="{{ path('app_category_show', {slug: category.slug}) }}">
+                        {{ category.name }}
+                    </a>
+                </h3>
+                <p>{{ category.description }}</p>
+            </div>
+        {% else %}
+            <p>Aucune catégorie trouvée.</p>
+        {% endfor %}
+    </div>
+
+    <p style="margin-top: 20px;">
+        <a href="{{ path('app_product_index') }}">← Voir tous les produits</a>
+    </p>
+{% endblock %}
