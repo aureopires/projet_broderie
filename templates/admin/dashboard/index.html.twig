@@ -1,0 +1,15 @@
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+    <div style="padding: 20px;">
+        <h1>Tableau de Bord - Administration</h1>
+        <p>Bienvenue dans l'espace d'administration du site de broderie.</p>
+
+        <hr style="margin: 20px 0;">
+
+        <ul>
+            <li><a href="{{ path('app_home') }}">← Retourner au site public</a></li>
+            <!-- Aqui colocaremos depois os links para gerenciar produtos, pedidos, etc. -->
+        </ul>
+    </div>
+{% endblock %}

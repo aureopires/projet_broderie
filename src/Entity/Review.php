@@ -27,6 +27,7 @@ class Review
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'reviews')]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'CASCADE')]
     private ?Product $product = null;
 
     #[ORM\ManyToOne(inversedBy: 'reviews')]

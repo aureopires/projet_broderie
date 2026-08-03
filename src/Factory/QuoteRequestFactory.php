@@ -39,7 +39,7 @@ final class QuoteRequestFactory extends PersistentObjectFactory
             'email' => self::faker()->safeEmail(),
             'message' => self::faker()->paragraph(),
             'name' => self::faker()->name(),
-            'status' => 'pending',
+            'status' => 'new',
             'user' => self::faker()->boolean(70) ? UserFactory::random() : null,
         ];
     }
