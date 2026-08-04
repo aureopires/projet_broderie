@@ -20,22 +20,3 @@ body {
     background: var(--default-fire-gradient);
 }
 
-.steamish-navbar {
-    border-bottom: .1rem solid var(--default-orange-darker) !important;
-}
-
-.steamish-link {
-    color: var(--default-color);
-}
-
-.steamish-link:hover {
-    color: var(--default-orange-darker);
-}
-
-.steamish-link-active {
-    color: var(--default-orange-darker);
-}
-
-.actions-link {
-    font-size: 2rem;
-}
