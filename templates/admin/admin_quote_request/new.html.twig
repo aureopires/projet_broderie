@@ -1,11 +1,15 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block mainTitle %}
 <!DOCTYPE html>
 
 <title>New QuoteRequest</title>
+{% endblock %}
 
 {% block body %}
     <h1>Create new QuoteRequest</h1>
 
-    {{ include('admin_quote_request/_form.html.twig') }}
+    {{ include('admin/admin_quote_request/_form.html.twig') }}
 
     <a href="{{ path('admin_quote_request_index') }}">back to list</a>
 {% endblock %}

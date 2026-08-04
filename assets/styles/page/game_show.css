@@ -1,36 +1,4 @@
 
-.game-show-container {
-
-    margin-top: 3rem;
-
-    .col-md-6, .col-12 {
-        height: 26rem;
-        padding: 0;
-    }
-
-    .front-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 1.5rem;
-    }
-
-    .game-show-infos {
-        padding-inline: 3rem;
-        border-radius: 1.5rem;
-        background-color: var(--default-card-background-color);
-    }
-
-    .game-show-category {
-        border-radius: 1rem;
-        border: .1rem solid var(--default-color);
-        background: var(--default-background-color);
-        padding: .2rem .6rem .3rem .6rem;
-    }
-
-    .game-show-price {
-        font-size: 3rem;
-        font-weight: 300;
-    }
+.container {
 
 }

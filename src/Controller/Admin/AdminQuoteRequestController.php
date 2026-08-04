@@ -17,7 +17,7 @@ final class AdminQuoteRequestController extends AbstractController
     #[Route(name: 'index', methods: ['GET'])]
     public function index(QuoteRequestRepository $quoteRequestRepository): Response
     {
-        return $this->render('admin_quote_request/index.html.twig', [
+        return $this->render('admin/admin_quote_request/index.html.twig', [
             'quote_requests' => $quoteRequestRepository->findAll(),
         ]);
     }
@@ -36,7 +36,7 @@ final class AdminQuoteRequestController extends AbstractController
             return $this->redirectToRoute('admin_quote_request_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('admin_quote_request/new.html.twig', [
+        return $this->render('admin/admin_quote_request/new.html.twig', [
             'quote_request' => $quoteRequest,
             'form' => $form,
         ]);
@@ -45,7 +45,7 @@ final class AdminQuoteRequestController extends AbstractController
     #[Route('/{id}', name: 'show', methods: ['GET'])]
     public function show(QuoteRequest $quoteRequest): Response
     {
-        return $this->render('admin_quote_request/show.html.twig', [
+        return $this->render('admin/admin_quote_request/show.html.twig', [
             'quote_request' => $quoteRequest,
         ]);
     }
@@ -62,7 +62,7 @@ final class AdminQuoteRequestController extends AbstractController
             return $this->redirectToRoute('admin_quote_request_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('admin_quote_request/edit.html.twig', [
+        return $this->render('admin/admin_quote_request/edit.html.twig', [
             'quote_request' => $quoteRequest,
             'form' => $form,
         ]);

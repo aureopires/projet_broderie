@@ -4,8 +4,4 @@
 @import "common/_variables.css";
 @import "common/default.css";
 
-@import "card/_game.css";
-@import "card/_review.css";
-@import "card/_category.css";
-
 @import "page/game_show.css";

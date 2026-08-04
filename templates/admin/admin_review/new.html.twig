@@ -1,11 +1,15 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block mainTitle %}
 <!DOCTYPE html>
 
 <title>New Review</title>
+{% endblock %}
 
 {% block body %}
     <h1>Create new Review</h1>
 
-    {{ include('admin_review/_form.html.twig') }}
+    {{ include('admin/admin_review/_form.html.twig') }}
 
     <a href="{{ path('admin_review_index') }}">back to list</a>
 {% endblock %}

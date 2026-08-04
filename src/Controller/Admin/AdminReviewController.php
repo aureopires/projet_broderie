@@ -17,7 +17,7 @@ final class AdminReviewController extends AbstractController
     #[Route(name: 'admin_review_index', methods: ['GET'])]
     public function index(ReviewRepository $reviewRepository): Response
     {
-        return $this->render('admin_review/index.html.twig', [
+        return $this->render('admin/admin_review/index.html.twig', [
             'reviews' => $reviewRepository->findAll(),
         ]);
     }
@@ -36,7 +36,7 @@ final class AdminReviewController extends AbstractController
             return $this->redirectToRoute('admin_review_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('admin_review/new.html.twig', [
+        return $this->render('admin/admin_review/new.html.twig', [
             'review' => $review,
             'form' => $form,
         ]);
@@ -45,7 +45,7 @@ final class AdminReviewController extends AbstractController
     #[Route('/{id}', name: 'admin_review_show', methods: ['GET'])]
     public function show(Review $review): Response
     {
-        return $this->render('admin_review/show.html.twig', [
+        return $this->render('admin/admin_review/show.html.twig', [
             'review' => $review,
         ]);
     }
@@ -62,7 +62,7 @@ final class AdminReviewController extends AbstractController
             return $this->redirectToRoute('admin_review_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('admin_review/edit.html.twig', [
+        return $this->render('admin/admin_review/edit.html.twig', [
             'review' => $review,
             'form' => $form,
         ]);
