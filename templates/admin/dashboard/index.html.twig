@@ -1,15 +1,11 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block body %}
-    <div style="padding: 20px;">
-        <h1>Tableau de Bord - Administration</h1>
-        <p>Bienvenue dans l'espace d'administration du site de broderie.</p>
+{% trans_default_domain 'admin' %}
 
-        <hr style="margin: 20px 0;">
+{% block mainTitle %}
+    L'Aiguille des Volcans - ADMIN
+{% endblock %}
 
-        <ul>
-            <li><a href="{{ path('app_home') }}">← Retourner au site public</a></li>
-            <!-- Aqui colocaremos depois os links para gerenciar produtos, pedidos, etc. -->
-        </ul>
-    </div>
+{% block content %}
+
 {% endblock %}

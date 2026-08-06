@@ -8,7 +8,11 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-dark);
-    font-family: 'Playfair Display', serif, sans-serif;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+.navbar {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+    font-weight: bold;
 }
 .navbar-brand {
     font-weight: bold;
@@ -16,10 +20,10 @@ body {
 }
 .nav-link {
     color: var(--text-dark) !important;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin: 0 10px;
+    margin: 0 2px;
 }
 .nav-link:hover, .nav-link.active {
     color: var(--primary-color) !important;
@@ -32,14 +36,25 @@ body {
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 1px;
-    padding: 10px 20px;
+    padding: 5px 10px;
 }
 .btn-gold:hover {
     background-color: #a08044;
     color: #fff;
 }
 .hero-section {
-    padding: 80px 0;
+    position: relative;
+    padding: 100px 0;
+    background-image: url('../../images/hero.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-dark);
+}
+/* Garante que o conteúdo fique acima da camada de fundo */
+.hero-section .container {
+    position: relative;
+    z-index: 2;
 }
 .hero-title {
     font-size: 3rem;
