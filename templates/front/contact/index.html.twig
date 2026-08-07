@@ -1,0 +1,117 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Contact - L'Aiguille des Volcans{% endblock %}
+
+{% block body %}
+
+    <!-- Page Header / Title -->
+    <section class="py-4 text-center">
+        <div class="container">
+            <h1 class="hero-title mb-0">Contact</h1>
+        </div>
+    </section>
+
+    <!-- Contact Content Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+
+            <!-- Mensagens de Feedback (Sucesso / Erro) -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-10">
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">{{ message }}</div>
+                    {% endfor %}
+                    {% for message in app.flashes('error') %}
+                        <div class="alert alert-danger">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row align-items-start g-5">
+
+                        <!-- Coluna Esquerda: Informações, Logo, Redes Sociais e Avisos -->
+                        <div class="col-md-6">
+                            <p class="text-muted" style="line-height: 1.8;">
+                                Je suis joignable par téléphone au <strong>0677895869</strong>.<br>
+                                Vous pouvez aussi bien-sur venir à l'Atelier qui se situe au <strong>4 Route de Clermont 63530 Volvic</strong> (Il est préférable de téléphoner avant).<br>
+                                Retrouvez-moi également sur Facebook et Instagram.
+                            </p>
+
+                            <!-- Logo centralizado na coluna -->
+                            <div class="text-center my-4">
+                                <img src="{{ asset('build/images/logo_nav.png') }}" alt="L'Aiguille des Volcans" class="img-fluid" style="max-height: 120px;">
+                            </div>
+
+                            <!-- Ícones de Redes Sociais -->
+                            <div class="d-flex justify-content-center gap-3 mb-4">
+                                <a href="https://facebook.com" target="_blank" class="text-decoration-none fs-3" style="color: #1877F2;">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="https://instagram.com" target="_blank" class="text-decoration-none fs-3" style="color: #E4405F;">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+
+                            <!-- Aviso sobre a loja -->
+                            <div class="p-4 bg-light rounded shadow-sm text-center">
+                                <p class="fw-bold mb-2">L'Aiguille des Volcans n'est pas un magasin.</p>
+                                <p class="text-muted mb-0">L'atelier est ouvert seulement sur rendez-vous.</p>
+                            </div>
+                        </div>
+
+                        <!-- Coluna Direita: Formulário de Contato -->
+                        <div class="col-md-6">
+                            <div class="p-4 bg-light rounded shadow-sm">
+                                <form action="{{ path('app_contact') }}" method="POST">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="prenom" class="form-label small fw-bold">Prénom</label>
+                                            <input type="text" class="form-control" id="prenom" name="prenom" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="nom" class="form-label small fw-bold">Nom</label>
+                                            <input type="text" class="form-control" id="nom" name="nom" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="entite" class="form-label small fw-bold">Entité</label>
+                                            <input type="text" class="form-control" id="entite" name="entite">
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="email" class="form-label small fw-bold">Adresse mail</label>
+                                            <input type="email" class="form-control" id="email" name="email" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="message" class="form-label small fw-bold">Votre message :</label>
+                                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                        </div>
+                                        <div class="col-12 text-end">
+                                            <button type="submit" class="btn btn-gold px-4">Envoyer</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Seção Inferior: Google Maps -->
+                    <div class="row mt-5 pt-4 border-top">
+                        <div class="col-12">
+                            <h3 class="h5 fw-bold mb-3 text-center">Retrouvez l'atelier sur la carte</h3>
+                            <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
+                                <!-- Substitua o src abaixo pelo iframe real do Google Maps da sua localização exata se desejar -->
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2777.7!2d3.03!3d45.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f1c!2s4%20Route%20de%20Clermont%2C%2063530%20Volvic!5e0!3m2!1sfr!2sfr!4v1650000000000!5m2!1sfr!2sfr"
+                                        style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

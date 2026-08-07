@@ -1,0 +1,8 @@
+<h2>Nouveau message reçu depuis le site</h2>
+<p><strong>Prénom :</strong> {{ prenom }}</p>
+<p><strong>Nom :</strong> {{ nom }}</p>
+<p><strong>Entité / Société :</strong> {{ entite ?: 'Non renseigné' }}</p>
+<p><strong>Email :</strong> {{ email }}</p>
+<hr>
+<p><strong>Message :</strong></p>
+<p>{{ messageContent|nl2br }}</p>
