@@ -2,6 +2,57 @@
 
 {% block body %}
     <h1>Toutes nos Catégories de Broderie</h1>
+    <!-- Savoir-Faire / Services Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="hero-subtitle">Notre savoir-faire</span>
+                <h2 class="fw-bold">Des services sur-mesure pour tous vos projets</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="service-card">
+                        <div class="mb-3 text-gold fs-3"><i class="fas fa-scroll"></i></div>
+                        <h5 class="fw-bold mb-3">Broderie Personnalisée</h5>
+                        <p class="text-muted small">Logos, prénoms, motifs ou textes : des broderies de qualité pour
+                            sublimer vos textiles.</p>
+                        <a href="prestations.html" class="text-dark mt-3 d-inline-block"><i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="service-card">
+                        <div class="mb-3 text-gold fs-3"><i class="fas fa-tshirt"></i></div>
+                        <h5 class="fw-bold mb-3">Personnalisation Textile</h5>
+                        <p class="text-muted small">Vêtements professionnels, tenues d’association, cadeaux
+                            personnalisés... Valorisez votre image avec élégance.</p>
+                        <a href="prestations.html" class="text-dark mt-3 d-inline-block"><i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="service-card">
+                        <div class="mb-3 text-gold fs-3"><i class="fas fa-cut"></i></div>
+                        <h5 class="fw-bold mb-3">Couture & Retouches</h5>
+                        <p class="text-muted small">Retouches, ajustements ou créations sur mesure : un travail soigné
+                            pour un rendu impeccable.</p>
+                        <a href="prestations.html" class="text-dark mt-3 d-inline-block"><i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="service-card">
+                        <div class="mb-3 text-gold fs-3"><i class="fas fa-gift"></i></div>
+                        <h5 class="fw-bold mb-3">Créations Sur-Mesure</h5>
+                        <p class="text-muted small">Un projet unique ? Ensemble, donnons vie à vos idées avec des
+                            réalisations qui vous ressemblent.</p>
+                        <a href="prestations.html" class="text-dark mt-3 d-inline-block"><i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div class="categories-grid">
         {% for category in categories %}
