@@ -20,7 +20,7 @@ final class ReviewController extends AbstractController
     {
         // Busca todos os reviews aprovados do mais recente para o mais antigo
         $reviews = $reviewRepository->findBy(
-            ['status' => 'published'],
+            ['status' => 'approved'],
             ['createdAt' => 'DESC']
         );
 

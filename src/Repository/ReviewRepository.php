@@ -24,7 +24,7 @@ class ReviewRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('r')
             ->andWhere('r.status = :status')
-            ->setParameter('status', 'published')
+            ->setParameter('status', 'approved')
             ->orderBy('r.createdAt', 'DESC')
             ->setMaxResults($limit)
             ->getQuery()

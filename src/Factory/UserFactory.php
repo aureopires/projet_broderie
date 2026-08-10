@@ -42,7 +42,7 @@ final class UserFactory extends PersistentObjectFactory
             'email' => self::faker()->unique()->safeEmail(),
             'firstName' => self::faker()->firstName(),
             'lastName' => self::faker()->lastName(),
-            'password' => '12345',
+            'password' => '123456',
             'roles' => ['ROLE_USER'],
         ];
     }

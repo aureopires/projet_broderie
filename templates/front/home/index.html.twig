@@ -131,8 +131,12 @@
                                         "{{ review.content }}"</p>
                                 </div>
                                 <div class="mt-3 pt-3 border-top">
-                                    <span
-                                        class="fw-bold small text-dark">{{ review.product.title }} - {{ review.user.firstName }}</span>
+                                    <span class="fw-bold small text-dark">
+                                        {% if review.product %}
+                                        {{ review.product.title }} -
+                                        {% endif %}
+                                        {{ review.user ? review.user.firstName : 'Client' }}
+                                    </span>
                                 </div>
                             </div>
                         </div>
