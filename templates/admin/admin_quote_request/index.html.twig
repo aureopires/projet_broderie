@@ -9,6 +9,8 @@
 {% block body %}
     <h1>QuoteRequest index</h1>
 
+    <a href="{{ path('admin_quote_request_new') }}">Create new</a>
+
     <table class="table">
         <thead>
             <tr>
@@ -43,5 +45,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_quote_request_new') }}">Create new</a>
 {% endblock %}

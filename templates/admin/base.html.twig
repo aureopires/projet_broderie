@@ -1,13 +1,9 @@
-{% trans_default_domain 'admin' %}
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>
-        {% block title %}
-            Admin Dashboard
-        {% endblock %}
+        {% block title %}L'Aiguille des Volcans | Atelier de Broderie Artisanale{% endblock %}
     </title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
     {% block stylesheets %}
@@ -19,35 +15,8 @@
     {% endblock %}
 </head>
 <body>
-<div class="row">
-    <div class="col-2 border-end mt-2">
-        {% include 'admin/menu/_sidemenu.html.twig' %}
-    </div>
-    <div class="col-10">
-        <div class="container-fluid mt-2">
-            {% include 'common/_alert.html.twig' %}
-            <h1 class="my-2">{% block mainTitle %}{% endblock %}</h1>
-
-            {% block content %}{% endblock %}
-
-            {% block table_content %}
-                <table class="table table-hover table-striped table-dark">
-                    <thead>
-                    <tr>
-                        {% block table_header %}
-                        {% endblock %}
-                        {% block table_actions %}
-                        {% endblock %}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% block table_body %}
-                    {% endblock %}
-                    </tbody>
-                </table>
-            {% endblock %}
-        </div>
-    </div>
-</div>
+{% include 'admin/common/header.html.twig' %}
+{% include 'common/_alert.html.twig' %}
+{% block body %}{% endblock %}
 </body>
 </html>

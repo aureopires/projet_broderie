@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-white py-0 sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="{{ path('app_home') }}">
+            <img src="{{ asset('build/images/logo_nav.png') }}" alt="L'Aiguille des Volcans" height="75"
+                 class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item"><a
+                        class="nav-link {{ app.request.attributes.get('_route') == 'admin_dashboard' ? 'active' : '' }}"
+                        href="{{ path('admin_dashboard') }}">Admin</a></li>
+                <li class="nav-item"><a
+                        class="nav-link {{ app.request.attributes.get('_route') == 'admin_quote_request_index' ? 'active' : '' }}"
+                        href="{{ path('admin_quote_request_index') }}">Devis</a></li>
+                <li class="nav-item"><a
+                        class="nav-link {{ app.request.attributes.get('_route') == 'admin_review_index' ? 'active' : '' }}"
+                        href="{{ path('admin_review_index') }}">Avis</a></li>
+                <li class="nav-item"><a
+                        class="nav-link {{ app.request.attributes.get('_route') == 'admin_product_index' ? 'active' : '' }}"
+                        href="{{ path('admin_product_index') }}">Produits</a></li>
+                <li class="nav-item"><a
+                        class="nav-link {{ app.request.attributes.get('_route') == 'admin_category_index' ? 'active' : '' }}"
+                        href="{{ path('admin_category_index') }}">Categories</a></li>
+                <li class="nav-item"><a
+                        class="nav-link {{ app.request.attributes.get('_route') == 'admin_user_index' ? 'active' : '' }}"
+                        href="{{ path('admin_user_index') }}">Utilisateurs</a></li>
+                <li class="nav-item ms-3">
+                    <a href="{{ path('app_login') }}" class="btn btn-gold">Se connecter</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

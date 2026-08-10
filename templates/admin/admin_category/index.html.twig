@@ -9,6 +9,8 @@
 {% block body %}
     <h1>Category index</h1>
 
+    <a href="{{ path('admin_category_new') }}">Create new</a>
+
     <table class="table">
         <thead>
             <tr>
@@ -41,5 +43,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_category_new') }}">Create new</a>
 {% endblock %}

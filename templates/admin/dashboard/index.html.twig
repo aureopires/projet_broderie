@@ -1,11 +1,17 @@
 {% extends 'admin/base.html.twig' %}
 
-{% trans_default_domain 'admin' %}
+{% block title %}Tableau de bord - Administration{% endblock %}
 
 {% block mainTitle %}
-    L'Aiguille des Volcans - ADMIN
+    Tableau de bord
 {% endblock %}
 
 {% block content %}
-
+    <div class="row">
+        <div class="col-12">
+            <div class="p-4 bg-white rounded shadow-sm">
+                <p>Bienvenue dans l'espace d'administration de L'Aiguille des Volcans.</p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
