@@ -12,6 +12,7 @@ use Zenstruck\Foundry\Persistence\PersistentObjectFactory;
 final class UserFactory extends PersistentObjectFactory
 {
     private ?UserPasswordHasherInterface $passwordHasher = null;
+
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services
      *
@@ -38,7 +39,8 @@ final class UserFactory extends PersistentObjectFactory
     protected function defaults(): array|callable
     {
         return [
-            'createdAt' => \DateTimeImmutable::createFromMutable(self::faker()->dateTimeBetween('-1 year', 'now')),
+            'createdAt' => \DateTimeImmutable::createFromMutable
+            (self::faker()->dateTimeBetween('-1 year', 'now')),
             'email' => self::faker()->unique()->safeEmail(),
             'firstName' => self::faker()->firstName(),
             'lastName' => self::faker()->lastName(),
@@ -54,12 +56,11 @@ final class UserFactory extends PersistentObjectFactory
     protected function initialize(): static
     {
         return $this
-             ->afterInstantiate(function(User $user): void {
-                 if ($user->getPassword()) {
-                     $hashedPassword = $this->passwordHasher->hashPassword($user, $user->getPassword());
-                     $user->setPassword($hashedPassword);
-                 }
-             })
-        ;
+            ->afterInstantiate(function (User $user): void {
+                if ($user->getPassword()) {
+                    $hashedPassword = $this->passwordHasher->hashPassword($user, $user->getPassword());
+                    $user->setPassword($hashedPassword);
+                }
+            });
     }
 }
