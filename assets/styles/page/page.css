@@ -14,10 +14,6 @@ body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
     font-weight: bold;
 }
-.navbar-brand {
-    font-weight: bold;
-    color: var(--text-dark) !important;
-}
 .nav-link {
     color: var(--text-dark) !important;
     font-size: 0.8rem;
