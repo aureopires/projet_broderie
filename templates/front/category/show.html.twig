@@ -1,27 +1,96 @@
 {% extends 'front/base.html.twig' %}
 
+{% block title %}{{ category.name }}{% endblock %}
+
 {% block body %}
-    <h1>{{ category.name }}</h1>
-    <p>{{ category.description }}</p>
+    <div class="container my-5">
+        <!-- Breadcrumb / Navegação -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ path('app_category_index') }}"
+                                               class="text-decoration-none text-muted">Catégories</a></li>
+                <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">{{ category.name }}</li>
+            </ol>
+        </nav>
 
-    <h2>Produits dans cette catégorie :</h2>
-    <div class="products-grid">
-        {# Graças ao relacionamento ManyToMany, podemos acessar os produtos da categoria diretamente! #}
-        {% for product in category.products %}
-            <div class="product-card">
-                <h3>
-                    <a href="{{ path('app_product_show', {slug: product.slug}) }}">
-                        {{ product.title }}
-                    </a>
-                </h3>
-                <p>{{ product.indicativePrice }} €</p>
+        <!-- Detalhes da Categoria -->
+        <div class="row g-5 align-items-center mb-5">
+            <div class="col-lg-5">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-light">
+                    {% if category.image is defined and category.image %}
+                        <img src="{{ category.image }}"
+                             class="img-fluid w-100 object-fit-cover" style="max-height: 350px;"
+                             alt="{{ category.name }}">
+
+                    {% else %}
+                        <div class="text-muted d-flex align-items-center justify-content-center" style="height: 300px;">
+                            <i class="bi bi-folder2-image display-1"></i>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
-        {% else %}
-            <p>Aucun produit n'est associé à cette catégorie pour le moment.</p>
-        {% endfor %}
-    </div>
+            <div class="col-lg-7">
+                <span class="badge bg-secondary mb-3 px-3 py-2 rounded-pill">Catégorie</span>
+                <h1 class="fw-bold text-dark display-6 mb-3">{{ category.name }}</h1>
+                <p class="text-muted" style="line-height: 1.8;">
+                    {{ category.description ?? 'Aucune description disponible pour cette catégorie.' }}
+                </p>
+            </div>
+        </div>
 
-    <p style="margin-top: 20px;">
-        <a href="{{ path('app_category_index') }}">← Retour à la liste des catégories</a>
-    </p>
+        <hr class="text-muted opacity-25 my-5">
+
+        <!-- Produtos associados à categoria (em formato de Cards modernos) -->
+        <div class="mb-4">
+            <h2 class="h3 fw-bold text-dark mb-4">Produits dans cette catégorie</h2>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% for product in category.products %}
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden product-card">
+                        <!-- Imagem do Produto -->
+                        {% if product.image is defined and product.image %}
+                            <img src="{{ product.image }}" class="card-img-top object-fit-cover" style="height: 240px;"
+                                 alt="{{ product.title }}">
+                        {% else %}
+                            <div class="bg-light text-muted d-flex align-items-center justify-content-center"
+                                 style="height: 240px;">
+                                <i class="bi bi-image fs-1"></i>
+                            </div>
+                        {% endif %}
+
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="h5 card-title fw-bold text-dark mb-2">
+                                <a href="{{ path('app_product_show', {slug: product.slug}) }}"
+                                   class="text-decoration-none text-dark stretched-link">
+                                    {{ product.title }}
+                                </a>
+                            </h3>
+                            <p class="card-text text-muted small flex-grow-1">
+                                {{ product.description ? product.description|slice(0, 85) ~ '...' : '' }}
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="fs-5 fw-bold text-primary">{{ product.indicativePrice }} €</span>
+                                <span class="btn btn-sm btn-outline-primary rounded-pill px-3">Voir</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-12">
+                    <div class="alert alert-info text-center py-4 rounded-4 shadow-sm" role="alert">
+                        Aucun produit n'est associé à cette catégorie pour le moment.
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Voltar -->
+        <div class="mt-5">
+            <a href="{{ path('app_category_index') }}" class="btn btn-outline-dark rounded-pill px-4">
+                <i class="bi bi-arrow-left me-2"></i> Retour à la liste des catégories
+            </a>
+        </div>
+    </div>
 {% endblock %}

@@ -1,41 +1,62 @@
 {% extends 'front/base.html.twig' %}
 
+{% block title %}Toutes nos Catégories{% endblock %}
+
 {% block body %}
-    <h1>Toutes nos Catégories de Broderie</h1>
-    <!-- Savoir-Faire / Services Section -->
-    <section class="py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <span class="hero-subtitle">Notre savoir-faire</span>
-                <h2 class="fw-bold">Des services sur-mesure pour tous vos projets</h2>
-            </div>
-            <div class="row g-4">
+    <div class="container my-5">
+        <!-- Cabeçalho -->
+        <div class="text-center mb-5">
+            <span class="text-uppercase text-secondary fw-bold small tracking-wide">Notre savoir-faire</span>
+            <h1 class="display-5 fw-bold text-dark mt-1">Des services sur-mesure pour tous vos projets</h1>
+            <p class="text-muted">Découvrez nos différentes catégories de créations et broderies.</p>
+        </div>
+
+        <!-- Lista de Categorias (4 colunas na mesma linha) -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
             {% for category in categories %}
-                <div class="col-md-3">
-                    <div class="service-card">
-                        <div class="mb-3 text-gold fs-3">
-                            <i class="fas fa-scroll"></i>
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+                        <!-- Imagem da Categoria (URL externa do Picsum) -->
+                        {% if category.image is defined and category.image %}
+                            <img src="{{ category.image }}" class="card-img-top object-fit-cover" style="height: 180px;"
+                                 alt="{{ category.name }}">
+                        {% else %}
+                            <div class="bg-light text-muted d-flex align-items-center justify-content-center"
+                                 style="height: 180px;">
+                                <i class="bi bi-folder2-image fs-1"></i>
+                            </div>
+                        {% endif %}
+
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="h5 card-title fw-bold text-dark mb-2">
+                                <a href="{{ path('app_category_show', { slug: category.slug }) }}"
+                                   class="text-decoration-none text-dark stretched-link">
+                                    {{ category.name }}
+                                </a>
+                            </h3>
+                            <p class="card-text text-muted small flex-grow-1">
+                                {{ category.description ? category.description|slice(0, 70) ~ '...' : '' }}
+                            </p>
+                            <div class="mt-3 pt-2 border-top text-end">
+                                <span class="btn btn-sm btn-outline-primary rounded-pill px-3">Voir</span>
+                            </div>
                         </div>
-
-                        <h5 class="fw-bold mb-3">
-                            <a href="{{ path('app_category_show', { slug: category.slug }) }}">
-                                {{ category.name }}
-                            </a>
-                        </h5>
-
-                        <p class="text-muted small">
-                            {{ category.description }}
-                        </p>
                     </div>
                 </div>
             {% else %}
-                <p>Aucune catégorie trouvée.</p>
+                <div class="col-12">
+                    <div class="alert alert-info text-center py-4 rounded-4 shadow-sm" role="alert">
+                        Aucune catégorie trouvée pour le moment.
+                    </div>
+                </div>
             {% endfor %}
         </div>
-    </div>
-</section>
 
-    <p style="margin-top: 20px;">
-        <a href="{{ path('app_product_index') }}">← Voir tous les produits</a>
-    </p>
+        <!-- Rodapé / Voltar aos produtos -->
+        <div class="mt-5 text-center">
+            <a href="{{ path('app_product_index') }}" class="btn btn-outline-dark rounded-pill px-4">
+                <i class="bi bi-arrow-left me-2"></i> Voir tous les produits
+            </a>
+        </div>
+    </div>
 {% endblock %}

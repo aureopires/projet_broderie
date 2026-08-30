@@ -1,35 +1,70 @@
 {% extends 'front/base.html.twig' %}
 
+{% block title %}Nos Créations Brodées{% endblock %}
+
 {% block body %}
-    <h1>Nos Créations Brodées</h1>
+    <div class="container my-5">
+        <!-- Cabeçalho -->
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bold text-dark">Nos Créations Brodées</h1>
+            <p class="text-muted">Découvrez notre collection exclusive de pièces uniques brodées avec amour.</p>
+        </div>
 
-    <!-- Menu rápido de categorias -->
-    <div>
-        <h3>Catégories :</h3>
-        <ul>
-            {% for category in categories %}
-                <li>
-                    <a href="{{ path('app_category_show', {slug: category.slug}) }}">
-                        {{ category.name }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <!-- Lista de Produtos -->
-    <div class="products-grid">
-        {% for product in products %}
-            <div class="product-card">
-                <h3>
-                    <a href="{{ path('app_product_show', {slug: product.slug}) }}">
-                        {{ product.title }}
-                    </a>
-                </h3>
-                <p>{{ product.indicativePrice }} €</p>
+        <!-- Menu de Categorias -->
+        {% if categories is defined and categories|length > 0 %}
+            <div class="mb-5 text-center">
+                <h3 class="h6 text-uppercase text-secondary fw-bold mb-3 tracking-wide">Catégories</h3>
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                    {% for category in categories %}
+                        <a href="{{ path('app_category_show', {slug: category.slug}) }}"
+                           class="btn btn-outline-dark btn-sm rounded-pill px-3 py-2">
+                            {{ category.name }}
+                        </a>
+                    {% endfor %}
+                </div>
             </div>
-        {% else %}
-            <p>Aucun produit disponible pour le moment.</p>
-        {% endfor %}
+        {% endif %}
+
+        <!-- Lista de Produtos (Grid de Cards) -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% for product in products %}
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden product-card">
+                        <!-- Imagem do Produto -->
+                        {% if product.image is defined and product.image %}
+                            <img src="{{ product.image }}" class="card-img-top object-fit-cover" style="height: 240px;"
+                                 alt="{{ product.title }}">
+                        {% else %}
+                            <div class="bg-light text-muted d-flex align-items-center justify-content-center"
+                                 style="height: 240px;">
+                                <i class="bi bi-image fs-1"></i>
+                            </div>
+                        {% endif %}
+
+                        <div class="card-body d-flex flex-column">
+                            <h3 class="h5 card-title fw-bold text-dark mb-2">
+                                <a href="{{ path('app_product_show', {slug: product.slug}) }}"
+                                   class="text-decoration-none text-dark stretched-link">
+                                    {{ product.title }}
+                                </a>
+                            </h3>
+                            <p class="card-text text-muted small flex-grow-1">
+                                {{ product.description ? product.description|slice(0, 85) ~ '...' : '' }}
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="fs-5 fw-bold text-primary">{{ product.indicativePrice }} €</span>
+                                <span class="btn btn-sm btn-outline-primary rounded-pill px-3">Voir</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-12">
+                    <div class="alert alert-info text-center py-4 rounded-4 shadow-sm" role="alert">
+                        Aucun produit disponible pour le moment.
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

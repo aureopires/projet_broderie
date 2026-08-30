@@ -1,11 +1,58 @@
 {% extends 'front/base.html.twig' %}
 
-{% block body %}
-    <h1>{{ product.title }}</h1>
-    <p><strong>Prix indicatif :</strong> {{ product.indicativePrice }} €</p>
-    <p>{{ product.description }}</p>
+{% block title %}{{ product.title }}{% endblock %}
 
-    <p>
-        <a href="{{ path('app_product_index') }}">← Retour au catalogue</a>
-    </p>
+{% block body %}
+    <div class="container my-5">
+        <!-- Fil d'Ariane (Breadcrumb) -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ path('app_product_index') }}"
+                                               class="text-decoration-none text-muted">Catalogue</a></li>
+                <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">{{ product.title }}</li>
+            </ol>
+        </nav>
+
+        <div class="row g-5 align-items-center">
+            <!-- Foto / Imagem do Produto em Destaque -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-light">
+                    {% if product.image is defined and product.image %}
+                        <img src="{{ product.image }}" class="img-fluid w-100 object-fit-cover"
+                             style="max-height: 500px;" alt="{{ product.title }}">
+                    {% else %}
+                        <div class="text-muted d-flex align-items-center justify-content-center" style="height: 450px;">
+                            <i class="bi bi-image display-1"></i>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Informações do Produto -->
+            <div class="col-lg-6">
+                <span class="badge bg-secondary mb-3 px-3 py-2 rounded-pill">Pièce Unique</span>
+                <h1 class="fw-bold text-dark display-6 mb-3">{{ product.title }}</h1>
+
+                <div class="mb-4">
+                    <span class="text-muted small d-block mb-1">Prix indicatif</span>
+                    <h2 class="text-primary fw-bold display-5">{{ product.indicativePrice }} €</h2>
+                </div>
+
+                <hr class="text-muted opacity-25 my-4">
+
+                <div class="mb-4">
+                    <h4 class="h5 fw-bold text-dark mb-2">Description</h4>
+                    <p class="text-muted" style="line-height: 1.8;">
+                        {{ product.description ?? 'Aucune description détaillée disponible pour cette création.' }}
+                    </p>
+                </div>
+
+                <div class="d-flex gap-3 align-items-center mt-5">
+                    <a href="{{ path('app_product_index') }}" class="btn btn-outline-dark px-4 py-2 rounded-pill">
+                        <i class="bi bi-arrow-left me-2"></i> Retour au catalogue
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
