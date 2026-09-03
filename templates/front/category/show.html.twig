@@ -18,10 +18,11 @@
             <div class="col-lg-5">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-light">
                     {% if category.image is defined and category.image %}
-                        <img src="{{ category.image }}"
-                             class="img-fluid w-100 object-fit-cover" style="max-height: 350px;"
-                             alt="{{ category.name }}">
-
+                        {% if category.image starts with 'https://' %}
+                            <img src="{{ category.image }}" class="img-fluid w-100 object-fit-cover" style="max-height: 350px;" alt="{{ category.name }}">
+                        {% else %}
+                            <img src="{{ asset('uploads/categories/' ~ category.image) }}" class="img-fluid w-100 object-fit-cover" style="max-height: 350px;" alt="{{ category.name }}">
+                        {% endif %}
                     {% else %}
                         <div class="text-muted d-flex align-items-center justify-content-center" style="height: 300px;">
                             <i class="bi bi-folder2-image display-1"></i>
@@ -49,10 +50,13 @@
             {% for product in category.products %}
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden product-card">
-                        <!-- Imagem do Produto -->
+                        <!-- Imagem do Produto (Compatível com Picsum e Upload Local) -->
                         {% if product.image is defined and product.image %}
-                            <img src="{{ product.image }}" class="card-img-top object-fit-cover" style="height: 240px;"
-                                 alt="{{ product.title }}">
+                            {% if product.image starts with 'https://' %}
+                                <img src="{{ product.image }}" class="card-img-top object-fit-cover" style="height: 240px;" alt="{{ product.title }}">
+                            {% else %}
+                                <img src="{{ asset('uploads/products/' ~ product.image) }}" class="card-img-top object-fit-cover" style="height: 240px;" alt="{{ product.title }}">
+                            {% endif %}
                         {% else %}
                             <div class="bg-light text-muted d-flex align-items-center justify-content-center"
                                  style="height: 240px;">

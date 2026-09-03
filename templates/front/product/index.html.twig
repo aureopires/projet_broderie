@@ -30,10 +30,13 @@
             {% for product in products %}
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden product-card">
-                        <!-- Imagem do Produto -->
+                        <!-- Imagem do Produto (Compatível com Picsum e Upload Local) -->
                         {% if product.image is defined and product.image %}
-                            <img src="{{ product.image }}" class="card-img-top object-fit-cover" style="height: 240px;"
-                                 alt="{{ product.title }}">
+                            {% if product.image starts with 'https://' %}
+                                <img src="{{ product.image }}" class="card-img-top object-fit-cover" style="height: 240px;" alt="{{ product.title }}">
+                            {% else %}
+                                <img src="{{ asset('uploads/products/' ~ product.image) }}" class="card-img-top object-fit-cover" style="height: 240px;" alt="{{ product.title }}">
+                            {% endif %}
                         {% else %}
                             <div class="bg-light text-muted d-flex align-items-center justify-content-center"
                                  style="height: 240px;">

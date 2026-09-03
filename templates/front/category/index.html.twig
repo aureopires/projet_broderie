@@ -16,10 +16,16 @@
             {% for category in categories %}
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
-                        <!-- Imagem da Categoria (URL externa do Picsum) -->
+                        <!-- Imagem da Categoria (Compatível com Picsum e Upload Local) -->
                         {% if category.image is defined and category.image %}
-                            <img src="{{ category.image }}" class="card-img-top object-fit-cover" style="height: 180px;"
-                                 alt="{{ category.name }}">
+                            {% if category.image starts with 'https://' %}
+                                <img src="{{ category.image }}" class="card-img-top object-fit-cover"
+                                     style="height: 180px;" alt="{{ category.name }}">
+                            {% else %}
+                                <img src="{{ asset('uploads/categories/' ~ category.image) }}"
+                                     class="card-img-top object-fit-cover" style="height: 180px;"
+                                     alt="{{ category.name }}">
+                            {% endif %}
                         {% else %}
                             <div class="bg-light text-muted d-flex align-items-center justify-content-center"
                                  style="height: 180px;">

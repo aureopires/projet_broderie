@@ -14,12 +14,15 @@
         </nav>
 
         <div class="row g-5 align-items-center">
-            <!-- Foto / Imagem do Produto em Destaque -->
+            <!-- Foto / Imagem do Produto em Destaque (Compatível com Picsum e Upload Local) -->
             <div class="col-lg-6">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-light">
                     {% if product.image is defined and product.image %}
-                        <img src="{{ product.image }}" class="img-fluid w-100 object-fit-cover"
-                             style="max-height: 500px;" alt="{{ product.title }}">
+                        {% if product.image starts with 'https://' %}
+                            <img src="{{ product.image }}" class="img-fluid w-100 object-fit-cover" style="max-height: 500px;" alt="{{ product.title }}">
+                        {% else %}
+                            <img src="{{ asset('uploads/products/' ~ product.image) }}" class="img-fluid w-100 object-fit-cover" style="max-height: 500px;" alt="{{ product.title }}">
+                        {% endif %}
                     {% else %}
                         <div class="text-muted d-flex align-items-center justify-content-center" style="height: 450px;">
                             <i class="bi bi-image display-1"></i>

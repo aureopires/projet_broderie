@@ -7,9 +7,12 @@ use App\Form\AdminCategoryType;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/admin/category')]
 final class AdminCategoryController extends AbstractController
@@ -23,13 +26,33 @@ final class AdminCategoryController extends AbstractController
     }
 
     #[Route('/new', name: 'admin_category_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $category = new Category();
         $form = $this->createForm(AdminCategoryType::class, $category);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile|null $imageFile */
+            $imageFile = $form->get('image')->getData(); // Altere para 'imageName' se for o caso na entidade Category
+
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('categories_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // Tratar exceção
+                }
+
+                $category->setImage($newFilename); // Altere para setImageName se o método for esse
+            }
+
             $entityManager->persist($category);
             $entityManager->flush();
 
@@ -51,12 +74,32 @@ final class AdminCategoryController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'admin_category_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Category $category, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Category $category, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(AdminCategoryType::class, $category);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile|null $imageFile */
+            $imageFile = $form->get('image')->getData(); // Altere para 'imageName' se necessário
+
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('categories_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // Tratar exceção
+                }
+
+                $category->setImage($newFilename); // Altere para setImageName se necessário
+            }
+
             $entityManager->flush();
 
             return $this->redirectToRoute('admin_category_index', [], Response::HTTP_SEE_OTHER);
