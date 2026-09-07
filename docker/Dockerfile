@@ -1,7 +1,7 @@
 ######
 # BASE STAGE
 ######
-FROM php:8.5-fpm AS base
+FROM php:8.2-fpm AS base
 ENV COMPOSER_MEMORY_LIMIT=-1
 
 # Add the github script to easy install-php-extensions
@@ -87,4 +87,3 @@ RUN npm install && \
 FROM caddy:2.11 AS caddy
 
 COPY Caddyfile /etc/caddy/Caddyfile
-
