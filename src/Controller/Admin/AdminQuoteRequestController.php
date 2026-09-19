@@ -9,6 +9,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/admin/quote', name: 'admin_quote_request_')]
@@ -30,6 +32,7 @@ final class AdminQuoteRequestController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->storeLogo($form, $quoteRequest);
             $entityManager->persist($quoteRequest);
             $entityManager->flush();
 
@@ -57,6 +60,7 @@ final class AdminQuoteRequestController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->storeLogo($form, $quoteRequest);
             $entityManager->flush();
 
             return $this->redirectToRoute('admin_quote_request_index', [], Response::HTTP_SEE_OTHER);
@@ -77,5 +81,23 @@ final class AdminQuoteRequestController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_quote_request_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    private function storeLogo(FormInterface $form, QuoteRequest $quoteRequest): void
+    {
+        /** @var UploadedFile|null $logoFile */
+        $logoFile = $form->get('logoFile')->getData();
+        if (!$logoFile) {
+            return;
+        }
+
+        $logoDirectory = $this->getParameter('quote_logos_directory');
+        if (!is_dir($logoDirectory) && !mkdir($logoDirectory, 0755, true) && !is_dir($logoDirectory)) {
+            throw new \RuntimeException('Impossible de créer le dossier de stockage du logo.');
+        }
+
+        $logoFilename = bin2hex(random_bytes(16)) . '.' . $logoFile->guessExtension();
+        $logoFile->move($logoDirectory, $logoFilename);
+        $quoteRequest->setLogo($logoFilename);
     }
 }

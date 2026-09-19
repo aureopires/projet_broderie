@@ -9,6 +9,7 @@
 parameters:
     products_directory: '%kernel.project_dir%/public/uploads/products'
     categories_directory: '%kernel.project_dir%/public/uploads/categories'
+    quote_logos_directory: '%kernel.project_dir%/public/uploads/quote-logos'
 
 services:
     # default configuration for services in *this* file

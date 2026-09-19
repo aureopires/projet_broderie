@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/quote', name: 'app_quote_')]
@@ -34,6 +35,23 @@ final class QuoteRequestController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $firstName = (string) $form->get('firstName')->getData();
+            $lastName = (string) $form->get('lastName')->getData();
+            $quoteRequest->setName(trim($firstName . ' ' . $lastName));
+
+            /** @var UploadedFile|null $logoFile */
+            $logoFile = $form->get('logoFile')->getData();
+            if ($logoFile) {
+                $logoDirectory = $this->getParameter('quote_logos_directory');
+                if (!is_dir($logoDirectory) && !mkdir($logoDirectory, 0755, true) && !is_dir($logoDirectory)) {
+                    throw new \RuntimeException('Impossible de créer le dossier de stockage du logo.');
+                }
+
+                $logoFilename = bin2hex(random_bytes(16)) . '.' . $logoFile->guessExtension();
+                $logoFile->move($logoDirectory, $logoFilename);
+                $quoteRequest->setLogo($logoFilename);
+            }
+
             $quoteRequest->setCreatedAt(new \DateTimeImmutable());
             $quoteRequest->setStatus('pending');
 

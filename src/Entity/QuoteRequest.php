@@ -23,6 +23,30 @@ class QuoteRequest
     #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $articleType = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $articleOrigin = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $markingType = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $logo = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $quantity = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $organizationType = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $organizationName = null;
+
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $phone = null;
+
     #[ORM\Column(length: 255)]
     private ?string $status = null;
 
@@ -69,6 +93,102 @@ class QuoteRequest
     public function setMessage(string $message): static
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getArticleType(): ?string
+    {
+        return $this->articleType;
+    }
+
+    public function setArticleType(?string $articleType): static
+    {
+        $this->articleType = $articleType;
+
+        return $this;
+    }
+
+    public function getArticleOrigin(): ?string
+    {
+        return $this->articleOrigin;
+    }
+
+    public function setArticleOrigin(?string $articleOrigin): static
+    {
+        $this->articleOrigin = $articleOrigin;
+
+        return $this;
+    }
+
+    public function getMarkingType(): ?string
+    {
+        return $this->markingType;
+    }
+
+    public function setMarkingType(?string $markingType): static
+    {
+        $this->markingType = $markingType;
+
+        return $this;
+    }
+
+    public function getLogo(): ?string
+    {
+        return $this->logo;
+    }
+
+    public function setLogo(?string $logo): static
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(?int $quantity): static
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getOrganizationType(): ?string
+    {
+        return $this->organizationType;
+    }
+
+    public function setOrganizationType(?string $organizationType): static
+    {
+        $this->organizationType = $organizationType;
+
+        return $this;
+    }
+
+    public function getOrganizationName(): ?string
+    {
+        return $this->organizationName;
+    }
+
+    public function setOrganizationName(?string $organizationName): static
+    {
+        $this->organizationName = $organizationName;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): static
+    {
+        $this->phone = $phone;
 
         return $this;
     }

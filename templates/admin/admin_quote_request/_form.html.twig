@@ -1,4 +1,12 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
+    {% if quote_request is defined and quote_request.logo %}
+        <p class="text-muted">
+            Logo actuel :
+            <a href="{{ asset('uploads/quote-logos/' ~ quote_request.logo) }}" target="_blank" rel="noopener">
+                {{ quote_request.logo }}
+            </a>
+        </p>
+    {% endif %}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

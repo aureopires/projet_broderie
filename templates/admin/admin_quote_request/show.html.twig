@@ -28,6 +28,49 @@
                 <td>{{ quote_request.message }}</td>
             </tr>
             <tr>
+                <th>Type d'article</th>
+                <td>{{ quote_request.articleType }}</td>
+            </tr>
+            <tr>
+                <th>Origine de l'article</th>
+                <td>{{ quote_request.articleOrigin }}</td>
+            </tr>
+            <tr>
+                <th>Type de marquage</th>
+                <td>{{ quote_request.markingType }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>
+                    {% if quote_request.logo %}
+                        <a href="{{ asset('uploads/quote-logos/' ~ quote_request.logo) }}" target="_blank" rel="noopener">
+                            <img src="{{ asset('uploads/quote-logos/' ~ quote_request.logo) }}"
+                                 alt="Logo de la demande" style="max-width: 180px; max-height: 100px;">
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Quantité</th>
+                <td>{{ quote_request.quantity }}</td>
+            </tr>
+            <tr>
+                <th>Type d'organisme</th>
+                <td>{{ quote_request.organizationType }}</td>
+            </tr>
+            <tr>
+                <th>Nom de l'organisme</th>
+                <td>{{ quote_request.organizationName }}</td>
+            </tr>
+            <tr>
+                <th>Téléphone</th>
+                <td>{{ quote_request.phone }}</td>
+            </tr>
+            <tr>
+                <th>Utilisateur</th>
+                <td>{{ quote_request.user ? quote_request.user.id : '' }}</td>
+            </tr>
+            <tr>
                 <th>Status</th>
                 <td>{{ quote_request.status }}</td>
             </tr>

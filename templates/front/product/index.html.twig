@@ -33,9 +33,17 @@
                         <!-- Imagem do Produto (Compatível com Picsum e Upload Local) -->
                         {% if product.image is defined and product.image %}
                             {% if product.image starts with 'https://' %}
-                                <img src="{{ product.image }}" class="card-img-top object-fit-cover" style="height: 240px;" alt="{{ product.title }}">
+                                <button type="button" class="lightbox-trigger p-0 border-0 w-100"
+                                        data-lightbox-src="{{ product.image }}"
+                                        data-lightbox-title="{{ product.title }}">
+                                    <img src="{{ product.image }}" class="card-img-top object-fit-cover" style="height: 240px;" alt="{{ product.title }}">
+                                </button>
                             {% else %}
-                                <img src="{{ asset('uploads/products/' ~ product.image) }}" class="card-img-top object-fit-cover" style="height: 240px;" alt="{{ product.title }}">
+                                <button type="button" class="lightbox-trigger p-0 border-0 w-100"
+                                        data-lightbox-src="{{ asset('uploads/products/' ~ product.image) }}"
+                                        data-lightbox-title="{{ product.title }}">
+                                    <img src="{{ asset('uploads/products/' ~ product.image) }}" class="card-img-top object-fit-cover" style="height: 240px;" alt="{{ product.title }}">
+                                </button>
                             {% endif %}
                         {% else %}
                             <div class="bg-light text-muted d-flex align-items-center justify-content-center"

@@ -82,3 +82,57 @@ body {
     padding: 25px 0;
     margin-top: 60px;
 }
+.lightbox-trigger {
+    display: block;
+    cursor: zoom-in;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+}
+.lightbox-trigger img {
+    display: block;
+    width: 100%;
+}
+.lightbox-image {
+    max-height: 80vh;
+    object-fit: contain;
+}
+.quote-page {
+    max-width: 850px;
+}
+.quote-form-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 3rem;
+    align-items: start;
+}
+.quote-page .form-label {
+    margin-bottom: .35rem;
+}
+.quote-page .form-control,
+.quote-page .form-select {
+    border: 1px solid #777;
+    border-radius: 0;
+    min-height: 42px;
+}
+.quote-page textarea.form-control {
+    min-height: 123px;
+}
+.quote-page .form-text {
+    color: #555;
+}
+.quote-submit {
+    width: 50%;
+    margin-left: calc(50% + 1.5rem);
+    margin-top: 1.5rem;
+}
+@media (max-width: 767.98px) {
+    .quote-form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .quote-submit {
+        width: 100%;
+        margin-left: 0;
+    }
+}

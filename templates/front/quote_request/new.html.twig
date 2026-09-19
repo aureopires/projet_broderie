@@ -1,15 +1,31 @@
 {% extends 'front/base.html.twig' %}
 
 {% block body %}
-    <h1>Demande de Devis Personnalisé</h1>
-    <p>Remplissez le formulaire ci-dessous pour nous faire part de votre projet de broderie sur mesure.</p>
+    <main class="container quote-page py-5">
+        <h1 class="mb-4">Demander un devis</h1>
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit" class="btn btn-primary" style="margin-top: 15px;">Envoyer la demande</button>
-    {{ form_end(form) }}
-
-    <p style="margin-top: 20px;">
-        <a href="{{ path('app_home') }}">← Retour à l'accueil</a>
-    </p>
+        {{ form_start(form) }}
+            <div class="quote-form-grid">
+                <div class="quote-form-project">
+                    {{ form_row(form.message) }}
+                    {{ form_row(form.articleType) }}
+                    {{ form_row(form.articleOrigin) }}
+                    {{ form_row(form.markingType) }}
+                    {{ form_row(form.logoFile) }}
+                </div>
+                <div class="quote-form-contact">
+                    {{ form_row(form.quantity) }}
+                    <div class="row g-3">
+                        <div class="col-md-6">{{ form_row(form.firstName) }}</div>
+                        <div class="col-md-6">{{ form_row(form.lastName) }}</div>
+                    </div>
+                    {{ form_row(form.organizationType) }}
+                    {{ form_row(form.organizationName) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.phone) }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-gold quote-submit">Envoyer</button>
+        {{ form_end(form) }}
+    </main>
 {% endblock %}

@@ -20,6 +20,15 @@
                 <th>Message</th>
                 <th>Status</th>
                 <th>CreatedAt</th>
+                <th>Article</th>
+                <th>Origine</th>
+                <th>Marquage</th>
+                <th>Logo</th>
+                <th>Quantité</th>
+                <th>Organisme</th>
+                <th>Nom organisme</th>
+                <th>Téléphone</th>
+                <th>Utilisateur</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -32,6 +41,15 @@
                 <td>{{ quote_request.message }}</td>
                 <td>{{ quote_request.status }}</td>
                 <td>{{ quote_request.createdAt ? quote_request.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ quote_request.articleType }}</td>
+                <td>{{ quote_request.articleOrigin }}</td>
+                <td>{{ quote_request.markingType }}</td>
+                <td>{{ quote_request.logo }}</td>
+                <td>{{ quote_request.quantity }}</td>
+                <td>{{ quote_request.organizationType }}</td>
+                <td>{{ quote_request.organizationName }}</td>
+                <td>{{ quote_request.phone }}</td>
+                <td>{{ quote_request.user ? quote_request.user.id : '' }}</td>
                 <td>
                     <a href="{{ path('admin_quote_request_show', {'id': quote_request.id}) }}">show</a>
                     <a href="{{ path('admin_quote_request_edit', {'id': quote_request.id}) }}">edit</a>
@@ -39,7 +57,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="16">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

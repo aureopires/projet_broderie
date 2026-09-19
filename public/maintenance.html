@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Maintenance | L'Aiguille des Volcans</title>
+    <style>
+        :root {
+            --cream: #fdfbf7;
+            --paper: #fffefa;
+            --ink: #2c2522;
+            --gold: #b89753;
+            --gold-dark: #8e713b;
+            --line: #e9e0d2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 15% 15%, rgba(184, 151, 83, .11) 0 1px, transparent 2px),
+                radial-gradient(circle at 85% 75%, rgba(184, 151, 83, .08) 0 1px, transparent 2px),
+                var(--cream);
+            background-size: 26px 26px, 34px 34px, auto;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .maintenance-card {
+            position: relative;
+            width: min(92%, 720px);
+            padding: 3.5rem clamp(1.5rem, 6vw, 5rem);
+            overflow: hidden;
+            text-align: center;
+            background: rgba(255, 254, 250, .92);
+            border: 1px solid var(--line);
+            box-shadow: 0 24px 70px rgba(73, 52, 23, .1);
+        }
+
+        .maintenance-card::before,
+        .maintenance-card::after {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            content: "";
+            border: 1px solid rgba(184, 151, 83, .35);
+            border-radius: 50%;
+        }
+
+        .maintenance-card::before {
+            top: -72px;
+            left: -72px;
+        }
+
+        .maintenance-card::after {
+            right: -72px;
+            bottom: -72px;
+        }
+
+        .logo {
+            width: min(260px, 75%);
+            height: auto;
+            margin-bottom: 2.2rem;
+        }
+
+        .needle {
+            position: relative;
+            width: 92px;
+            height: 92px;
+            margin: 0 auto 1.8rem;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+        }
+
+        .needle::before,
+        .needle::after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: block;
+            content: "";
+            background: var(--gold);
+            transform-origin: left center;
+        }
+
+        .needle::before {
+            width: 64px;
+            height: 1px;
+            animation: stitch 2.8s ease-in-out infinite;
+        }
+
+        .needle::after {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 5px rgba(184, 151, 83, .12);
+        }
+
+        .eyebrow {
+            margin: 0 0 .9rem;
+            color: var(--gold-dark);
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            font-weight: 400;
+            line-height: 1.08;
+        }
+
+        h1 em {
+            color: var(--gold-dark);
+            font-weight: 400;
+        }
+
+        .message {
+            max-width: 500px;
+            margin: 1.5rem auto 0;
+            color: #665b54;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .contact {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            margin-top: 2rem;
+            padding: .85rem 1.5rem;
+            color: #fff;
+            background: var(--gold);
+            border-radius: 3px;
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            font-size: .85rem;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-decoration: none;
+            transition: background .2s ease, transform .2s ease;
+        }
+
+        .contact:hover {
+            color: #fff;
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            margin: 2.5rem 0 0;
+            color: #958a80;
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            font-size: .75rem;
+            letter-spacing: .04em;
+        }
+
+        @keyframes stitch {
+            0%, 100% { transform: rotate(-35deg); }
+            50% { transform: rotate(35deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .needle::before {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="maintenance-card">
+        <img class="logo" src="/build/images/logo_nav.png" alt="L'Aiguille des Volcans">
+
+        <div class="needle" aria-hidden="true"></div>
+
+        <p class="eyebrow">Atelier en préparation</p>
+        <h1>Nous revenons <em>bientôt</em></h1>
+        <p class="message">
+            Notre site se refait une beauté pour vous proposer une expérience encore plus
+            agréable. Merci pour votre patience et à très vite pour découvrir nos nouveautés.
+        </p>
+
+        <a class="contact" href="mailto:contact@aiguilledesvolcans.fr">
+            Nous contacter <span aria-hidden="true">→</span>
+        </a>
+
+        <p class="footer">L'Aiguille des Volcans · Broderie artisanale &amp; personnalisation textile</p>
+    </main>
+</body>
+</html>

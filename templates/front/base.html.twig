@@ -19,5 +19,22 @@
         {% include 'common/_alert.html.twig' %}
         {% block body %}{% endblock %}
         {% include 'front/common/footer.html.twig' %}
+
+        <div class="modal fade" id="gallery-lightbox" tabindex="-1" aria-labelledby="gallery-lightbox-title"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content bg-transparent border-0">
+                    <div class="modal-header border-0 p-0">
+                        <h2 id="gallery-lightbox-title" class="visually-hidden" data-lightbox-title></h2>
+                        <button type="button" class="btn-close btn-close-white ms-auto me-2 mt-2"
+                                data-bs-dismiss="modal" aria-label="Fermer"></button>
+                    </div>
+                    <div class="modal-body p-0 text-center">
+                        <img src="" alt="" class="img-fluid rounded shadow-lg lightbox-image"
+                             data-lightbox-image>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
