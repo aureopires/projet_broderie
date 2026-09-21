@@ -2,16 +2,117 @@
 
 {% block title %}Tableau de bord - Administration{% endblock %}
 
-{% block mainTitle %}
-    Tableau de bord
-{% endblock %}
+{% block body %}
+    <main class="container py-5">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <p class="text-muted mb-1">Administration</p>
+                <h1 class="fw-bold mb-0">Tableau de bord</h1>
+            </div>
+            <a href="{{ path('app_home') }}" class="btn btn-outline-dark">
+                <i class="fas fa-arrow-left me-1"></i> Voir le site
+            </a>
+        </div>
 
-{% block content %}
-    <div class="row">
-        <div class="col-12">
-            <div class="p-4 bg-white rounded shadow-sm">
-                <p>Bienvenue dans l'espace d'administration de L'Aiguille des Volcans.</p>
+        <div class="row g-4 mb-5">
+            {% set summary_cards = [
+                {label: 'Demandes de devis', value: quote_requests_count, icon: 'fa-file-signature', route: 'admin_quote_request_index'},
+                {label: 'Nouveaux devis', value: new_quote_requests_count, icon: 'fa-clock', route: 'admin_quote_request_index'},
+                {label: 'Avis', value: reviews_count, icon: 'fa-star', route: 'admin_review_index'},
+                {label: 'Produits', value: products_count, icon: 'fa-shirt', route: 'admin_product_index'},
+                {label: 'Catégories', value: categories_count, icon: 'fa-layer-group', route: 'admin_category_index'},
+                {label: 'Utilisateurs', value: users_count, icon: 'fa-users', route: 'admin_user_index'}
+            ] %}
+            {% for card in summary_cards %}
+                <div class="col-sm-6 col-xl-2">
+                    <a href="{{ path(card.route) }}" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm p-3">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <span class="text-muted small">{{ card.label }}</span>
+                                <i class="fas {{ card.icon }} text-warning"></i>
+                            </div>
+                            <strong class="fs-2 text-dark mt-2">{{ card.value }}</strong>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="h5 fw-bold mb-0">Dernières demandes de devis</h2>
+                            <a href="{{ path('admin_quote_request_index') }}" class="small text-decoration-none">Tout voir</a>
+                        </div>
+                        {% for quote in latest_quote_requests %}
+                            <a href="{{ path('admin_quote_request_show', {id: quote.id}) }}"
+                               class="d-flex justify-content-between align-items-center gap-3 py-3 border-top text-decoration-none">
+                                <div>
+                                    <strong class="d-block text-dark">{{ quote.name }}</strong>
+                                    <span class="text-muted small">{{ quote.articleType ?: 'Demande personnalisée' }}</span>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge {{ quote.status == 'new' ? 'bg-warning text-dark' : (quote.status == 'processing' ? 'bg-info text-dark' : 'bg-success') }}">
+                                        {{ quote.status|capitalize }}
+                                    </span>
+                                    <small class="d-block text-muted mt-1">{{ quote.createdAt ? quote.createdAt|date('d/m/Y') : '' }}</small>
+                                </div>
+                            </a>
+                        {% else %}
+                            <p class="text-muted mb-0">Aucune demande de devis.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="h5 fw-bold mb-0">Derniers avis</h2>
+                            <a href="{{ path('admin_review_index') }}" class="small text-decoration-none">Tout voir</a>
+                        </div>
+                        {% for review in latest_reviews %}
+                            <a href="{{ path('admin_review_show', {id: review.id}) }}"
+                               class="d-block py-3 border-top text-decoration-none">
+                                <div class="d-flex justify-content-between gap-3">
+                                    <strong class="text-dark">{{ review.user ? review.user.firstName : 'Client' }}</strong>
+                                    <div class="text-end">
+                                        <span class="text-warning">
+                                            {% for i in 1..5 %}<i class="{{ i <= review.rating ? 'fas fa-star' : 'far fa-star' }}"></i>{% endfor %}
+                                        </span>
+                                        <span class="badge d-block mt-1 {{ review.status == 'pending' ? 'bg-warning text-dark' : (review.status == 'approved' ? 'bg-success' : 'bg-danger') }}">
+                                            {{ review.status == 'pending' ? 'En attente' : (review.status == 'approved' ? 'Approuvé' : 'Rejeté') }}
+                                        </span>
+                                    </div>
+                                </div>
+                                <span class="text-muted small">{{ review.content|length > 90 ? review.content|slice(0, 90) ~ '…' : review.content }}</span>
+                            </a>
+                        {% else %}
+                            <p class="text-muted mb-0">Aucun avis.</p>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+
+        <h2 class="h5 fw-bold mb-3">Accès rapides</h2>
+        <div class="row g-3">
+            {% for label, route in {
+                'Demandes de devis': ['fa-file-signature', 'admin_quote_request_index'],
+                'Avis clients': ['fa-star', 'admin_review_index'],
+                'Produits': ['fa-shirt', 'admin_product_index'],
+                'Catégories': ['fa-layer-group', 'admin_category_index'],
+                'Utilisateurs': ['fa-users', 'admin_user_index']
+            } %}
+                <div class="col-md-6 col-xl">
+                    <a href="{{ path(route[1]) }}" class="btn btn-outline-dark w-100 py-3">
+                        <i class="fas {{ route[0] }} me-2"></i>{{ label }}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
 {% endblock %}

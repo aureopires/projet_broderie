@@ -23,9 +23,6 @@ final class CategoryController extends AbstractController
         ]);
     }
 
-    /**
-     * 2. Exibe uma categoria específica e seus produtos
-     */
     #[Route('/{slug}', name: 'show')]
     public function show(string $slug, CategoryRepository $categoryRepository): Response
     {

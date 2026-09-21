@@ -15,9 +15,6 @@ class ProductRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Product::class);
     }
-    /**
-     * 1. Retorna os produtos ativos mais recentes (ideal para a página inicial)
-     */
     public function findActiveRecent(int $limit = 10): array
     {
         return $this->createQueryBuilder('p')
@@ -29,9 +26,6 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    /**
-     * 2. Filtra os produtos ativos pelo slug da categoria
-     */
     public function findByCategorySlug(string $slug): array
     {
         return $this->createQueryBuilder('p')
@@ -45,9 +39,6 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    /**
-     * 3. Busca produtos ativos por palavra-chave (no título ou na descrição)
-     */
     public function searchByKeyword(string $keyword): array
     {
         return $this->createQueryBuilder('p')

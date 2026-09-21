@@ -1,26 +1,20 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block mainTitle %}
-<!DOCTYPE html>
-
-<title>Review index</title>
-{% endblock %}
-
 {% block body %}
-    <h1>Review index</h1>
+    <h1>Avis</h1>
 
-    <a href="{{ path('admin_review_new') }}">Create new</a>
+    <a href="{{ path('admin_review_new') }}">Créer</a>
 
     <table class="table">
         <thead>
         <tr>
             <th>Id</th>
             <th>Produit / Cible</th>
-            <th>Content</th>
-            <th>Status</th>
-            <th>Rating</th>
-            <th>CreatedAt</th>
-            <th>actions</th>
+            <th>Contenu</th>
+            <th>Statut</th>
+            <th>Note</th>
+            <th>Créé le</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -39,13 +33,13 @@
                 <td>{{ review.rating }}</td>
                 <td>{{ review.createdAt ? review.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('admin_review_show', {'id': review.id}) }}">show</a>
-                    <a href="{{ path('admin_review_edit', {'id': review.id}) }}">edit</a>
+                    <a href="{{ path('admin_review_show', {'id': review.id}) }}">Voir</a>
+                    <a href="{{ path('admin_review_edit', {'id': review.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Aucun enregistrement.</td>
             </tr>
         {% endfor %}
         </tbody>

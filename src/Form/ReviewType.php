@@ -4,13 +4,13 @@ namespace App\Form;
 
 use App\Entity\Product;
 use App\Entity\Review;
-use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Range;
 
 class ReviewType extends AbstractType
 {
@@ -19,7 +19,8 @@ class ReviewType extends AbstractType
         $builder
             ->add('rating', IntegerType::class, [
                 'label' => 'Note (1 à 5)',
-                'attr' => ['min' => 1, 'max' => 5]
+                'attr' => ['min' => 1, 'max' => 5],
+                'constraints' => [new Range(min: 1, max: 5)],
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Votre commentaire'
@@ -27,7 +28,7 @@ class ReviewType extends AbstractType
             ->add('product', EntityType::class, [
                 'class' => Product::class,
                 'choice_label' => 'title',
-                'required' => false, // Opcional, caso queira deixar um review geral do site
+                'required' => false,
                 'placeholder' => 'Avis général sur le site (Optionnel)',
                 'label' => 'Concerne un produit ?'
             ])

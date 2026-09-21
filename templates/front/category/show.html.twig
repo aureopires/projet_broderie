@@ -4,7 +4,6 @@
 
 {% block body %}
     <div class="container my-5">
-        <!-- Breadcrumb / Navegação -->
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ path('app_category_index') }}"
@@ -13,7 +12,6 @@
             </ol>
         </nav>
 
-        <!-- Detalhes da Categoria -->
         <div class="row g-5 align-items-center mb-5">
             <div class="col-lg-5">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-light">
@@ -41,7 +39,6 @@
 
         <hr class="text-muted opacity-25 my-5">
 
-        <!-- Produtos associados à categoria (em formato de Cards modernos) -->
         <div class="mb-4">
             <h2 class="h3 fw-bold text-dark mb-4">Produits dans cette catégorie</h2>
         </div>
@@ -50,7 +47,6 @@
             {% for product in category.products %}
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden product-card">
-                        <!-- Imagem do Produto (Compatível com Picsum e Upload Local) -->
                         {% if product.image is defined and product.image %}
                             {% if product.image starts with 'https://' %}
                                 <button type="button" class="lightbox-trigger p-0 border-0 w-100"
@@ -98,7 +94,6 @@
             {% endfor %}
         </div>
 
-        <!-- Voltar -->
         <div class="mt-5">
             <a href="{{ path('app_category_index') }}" class="btn btn-outline-dark rounded-pill px-4">
                 <i class="bi bi-arrow-left me-2"></i> Retour à la liste des catégories

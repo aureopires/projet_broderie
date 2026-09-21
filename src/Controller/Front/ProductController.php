@@ -11,9 +11,6 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/product', name: 'app_product_')]
 final class ProductController extends AbstractController
 {
-    /**
-     * 1. Lista todos os produtos ativos e exibe as categorias para navegação
-     */
     #[Route('', name: 'index')]
     public function index(
         ProductRepository  $productRepository,
@@ -29,9 +26,6 @@ final class ProductController extends AbstractController
             ]);
     }
 
-    /**
-     * 2. Lista os produtos filtrados por uma categoria específica usando o slug
-     */
     #[Route('/category/{slug}', name: 'category')]
     public function category(string $slug, ProductRepository $productRepository, CategoryRepository $categoryRepository): Response
     {
@@ -41,7 +35,6 @@ final class ProductController extends AbstractController
             throw $this->createNotFoundException('Catégorie introuvable.');
         }
 
-        // Utilizando o método personalizado que criamos no ProductRepository!
         $products = $productRepository->findByCategorySlug($slug);
         $categories = $categoryRepository->findAll();
 
@@ -52,9 +45,6 @@ final class ProductController extends AbstractController
         ]);
     }
 
-    /**
-     * 3. Exibe os detalhes de um produto único pelo seu slug
-     */
     #[Route('/{slug}', name: 'show')]
     public function show(string $slug, ProductRepository $productRepository): Response
     {

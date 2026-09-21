@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar d-flex align-items-center" href="{{ path('app_home') }}">
             <img src="{{ asset('build/images/logo_nav.png') }}" alt="L'Aiguille des Volcans" height="75"
-                 class="d-inline-block align-text-top">
+                 class="d-inline-block align-text-top" data-theme-logo>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -27,6 +27,12 @@
                 <li class="nav-item"><a
                         class="nav-link {{ app.request.attributes.get('_route') == 'admin_user_index' ? 'active' : '' }}"
                         href="{{ path('admin_user_index') }}">Utilisateurs</a></li>
+                <li class="nav-item ms-lg-2">
+                    <button type="button" class="btn btn-theme-toggle" data-theme-toggle
+                            aria-label="Activer le mode sombre" title="Mode sombre">
+                        <i class="fas fa-moon" aria-hidden="true"></i>
+                    </button>
+                </li>
                 <li class="nav-item ms-3">
                     <a href="{{ path('app_login') }}" class="btn btn-gold">Se connecter</a>
                 </li>

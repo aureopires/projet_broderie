@@ -9,6 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: QuoteRequestRepository::class)]
 class QuoteRequest
 {
+    public const STATUS_NEW = 'new';
+    public const STATUS_PROCESSING = 'processing';
+    public const STATUS_FINISHED = 'finished';
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -200,9 +204,25 @@ class QuoteRequest
 
     public function setStatus(string $status): static
     {
+        if (!in_array($status, self::getStatuses(), true)) {
+            throw new \InvalidArgumentException(sprintf('Invalid quote request status "%s".', $status));
+        }
+
         $this->status = $status;
 
         return $this;
+    }
+
+    /**
+     * @return list<string>
+     */
+    public static function getStatuses(): array
+    {
+        return [
+            self::STATUS_NEW,
+            self::STATUS_PROCESSING,
+            self::STATUS_FINISHED,
+        ];
     }
 
     public function getCreatedAt(): ?\DateTimeImmutable

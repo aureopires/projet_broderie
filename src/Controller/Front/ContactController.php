@@ -21,11 +21,10 @@ final class ContactController extends AbstractController
             $email = $request->request->get('email');
             $message = $request->request->get('message');
 
-            // Validação simples
             if (!empty($prenom) && !empty($nom) && !empty($email) && !empty($message)) {
                 $emailMessage = (new TemplatedEmail())
                     ->from($email)
-                    ->to('contact@laiguilledesvolcans.fr') // Insira o e-mail da admin aqui
+                    ->to('contact@laiguilledesvolcans.fr')
                     ->subject("Nouveau message de contact de {$prenom} {$nom}")
                     ->htmlTemplate('front/contact/email.html.twig')
                     ->context([

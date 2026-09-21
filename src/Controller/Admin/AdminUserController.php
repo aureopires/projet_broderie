@@ -35,7 +35,6 @@ final class AdminUserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Pega a senha em texto plano digitada no formulário e faz o hash
             $plainPassword = $user->getPassword();
             if ($plainPassword) {
                 $hashedPassword = $passwordHasher->hashPassword($user, $plainPassword);
@@ -69,14 +68,12 @@ final class AdminUserController extends AbstractController
         UserPasswordHasherInterface $passwordHasher
     ): Response
     {
-        // Guarda a senha atual caso o campo venha em branco na edição
         $currentPassword = $user->getPassword();
 
         $form = $this->createForm(AdminUserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Se uma nova senha foi digitada, faz o hash dela. Senão, mantém a antiga.
             $plainPassword = $user->getPassword();
             if ($plainPassword && $plainPassword !== $currentPassword) {
                 $hashedPassword = $passwordHasher->hashPassword($user, $plainPassword);

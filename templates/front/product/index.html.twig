@@ -4,13 +4,11 @@
 
 {% block body %}
     <div class="container my-5">
-        <!-- Cabeçalho -->
         <div class="text-center mb-5">
             <h1 class="display-5 fw-bold text-dark">Nos Créations Brodées</h1>
             <p class="text-muted">Découvrez notre collection exclusive de pièces uniques brodées avec amour.</p>
         </div>
 
-        <!-- Menu de Categorias -->
         {% if categories is defined and categories|length > 0 %}
             <div class="mb-5 text-center">
                 <h3 class="h6 text-uppercase text-secondary fw-bold mb-3 tracking-wide">Catégories</h3>
@@ -25,12 +23,10 @@
             </div>
         {% endif %}
 
-        <!-- Lista de Produtos (Grid de Cards) -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {% for product in products %}
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden product-card">
-                        <!-- Imagem do Produto (Compatível com Picsum e Upload Local) -->
                         {% if product.image is defined and product.image %}
                             {% if product.image starts with 'https://' %}
                                 <button type="button" class="lightbox-trigger p-0 border-0 w-100"

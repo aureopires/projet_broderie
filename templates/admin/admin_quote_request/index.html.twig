@@ -1,25 +1,19 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block mainTitle %}
-<!DOCTYPE html>
-
-<title>QuoteRequest index</title>
-{% endblock %}
-
 {% block body %}
-    <h1>QuoteRequest index</h1>
+    <h1>Demandes de devis</h1>
 
-    <a href="{{ path('admin_quote_request_new') }}">Create new</a>
+    <a href="{{ path('admin_quote_request_new') }}">Créer</a>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom</th>
                 <th>Email</th>
                 <th>Message</th>
-                <th>Status</th>
-                <th>CreatedAt</th>
+                <th>Statut</th>
+                <th>Créé le</th>
                 <th>Article</th>
                 <th>Origine</th>
                 <th>Marquage</th>
@@ -29,7 +23,7 @@
                 <th>Nom organisme</th>
                 <th>Téléphone</th>
                 <th>Utilisateur</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -51,13 +45,13 @@
                 <td>{{ quote_request.phone }}</td>
                 <td>{{ quote_request.user ? quote_request.user.id : '' }}</td>
                 <td>
-                    <a href="{{ path('admin_quote_request_show', {'id': quote_request.id}) }}">show</a>
-                    <a href="{{ path('admin_quote_request_edit', {'id': quote_request.id}) }}">edit</a>
+                    <a href="{{ path('admin_quote_request_show', {'id': quote_request.id}) }}">Voir</a>
+                    <a href="{{ path('admin_quote_request_edit', {'id': quote_request.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="16">no records found</td>
+                <td colspan="16">Aucun enregistrement.</td>
             </tr>
         {% endfor %}
         </tbody>

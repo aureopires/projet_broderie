@@ -16,7 +16,6 @@ final class HomeController extends AbstractController
         ReviewRepository $reviewRepository
     ): Response
     {
-        // Busca os 8 produtos ativos mais recentes utilizando o repositório
         $products = $productRepository->findActiveRecent(8);
         $reviews = $reviewRepository->findLatestApproved(6);
 

@@ -14,7 +14,6 @@
         </nav>
 
         <div class="row g-5 align-items-center">
-            <!-- Foto / Imagem do Produto em Destaque (Compatível com Picsum e Upload Local) -->
             <div class="col-lg-6">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-light">
                     {% if product.image is defined and product.image %}
@@ -31,7 +30,6 @@
                 </div>
             </div>
 
-            <!-- Informações do Produto -->
             <div class="col-lg-6">
                 <span class="badge bg-secondary mb-3 px-3 py-2 rounded-pill">Pièce Unique</span>
                 <h1 class="fw-bold text-dark display-6 mb-3">{{ product.title }}</h1>

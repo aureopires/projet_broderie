@@ -3,9 +3,8 @@
 namespace App\Form;
 
 use App\Entity\QuoteRequest;
-use App\Entity\User;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -63,6 +62,7 @@ class QuoteRequestType extends AbstractType
                 'label' => 'Quantité à personnaliser',
                 'required' => true,
                 'attr' => ['placeholder' => 'Saisissez la quantité', 'min' => 1],
+                'constraints' => [new GreaterThanOrEqual(1)],
             ])
             ->add('firstName', TextType::class, [
                 'label' => 'Prénom',

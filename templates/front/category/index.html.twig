@@ -4,19 +4,16 @@
 
 {% block body %}
     <div class="container my-5">
-        <!-- Cabeçalho -->
         <div class="text-center mb-5">
             <span class="text-uppercase text-secondary fw-bold small tracking-wide">Notre savoir-faire</span>
             <h1 class="display-5 fw-bold text-dark mt-1">Des services sur-mesure pour tous vos projets</h1>
             <p class="text-muted">Découvrez nos différentes catégories de créations et broderies.</p>
         </div>
 
-        <!-- Lista de Categorias (4 colunas na mesma linha) -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
             {% for category in categories %}
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
-                        <!-- Imagem da Categoria (Compatível com Picsum e Upload Local) -->
                         {% if category.image is defined and category.image %}
                             {% if category.image starts with 'https://' %}
                                 <img src="{{ category.image }}" class="card-img-top object-fit-cover"
@@ -58,7 +55,6 @@
             {% endfor %}
         </div>
 
-        <!-- Rodapé / Voltar aos produtos -->
         <div class="mt-5 text-center">
             <a href="{{ path('app_product_index') }}" class="btn btn-outline-dark rounded-pill px-4">
                 <i class="bi bi-arrow-left me-2"></i> Voir tous les produits

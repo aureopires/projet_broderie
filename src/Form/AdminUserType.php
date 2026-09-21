@@ -14,33 +14,31 @@ class AdminUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
+            ->add('email', null, ['label' => 'Adresse e-mail'])
             ->add('roles', ChoiceType::class, [
                 'choices' => [
-                    'Administrator' => 'ROLE_ADMIN',
-                    'Standard User' => 'ROLE_USER',
+                    'Administrateur' => 'ROLE_ADMIN',
+                    'Utilisateur' => 'ROLE_USER',
                 ],
                 'multiple' => true,
-                'expanded' => true, // Cria checkboxes para facilitar a seleção
+                'expanded' => true,
             ])
-            ->add('password')
-            ->add('firstName')
-            ->add('lastName')
+            ->add('password', null, ['label' => 'Mot de passe'])
+            ->add('firstName', null, ['label' => 'Prénom'])
+            ->add('lastName', null, ['label' => 'Nom'])
             ->add('createdAt', null, [
+                'label' => 'Date de création',
                 'widget' => 'single_text',
             ])
-            ->add('isVerified')
+            ->add('isVerified', null, ['label' => 'Compte vérifié'])
         ;
 
-        // Adiciona o transformador logo após o encadeamento principal
         $builder->get('roles')
             ->addModelTransformer(new CallbackTransformer(
                 function ($rolesAsArray) {
-                    // Garante que o valor que vai para o form seja um array
                     return is_array($rolesAsArray) ? $rolesAsArray : [];
                 },
                 function ($rolesAsString) {
-                    // Garante que o valor que volta do form para o banco seja um array
                     return is_array($rolesAsString) ? $rolesAsString : [$rolesAsString];
                 }
             ));

@@ -34,7 +34,7 @@ final class AdminCategoryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile|null $imageFile */
-            $imageFile = $form->get('image')->getData(); // Altere para 'imageName' se for o caso na entidade Category
+            $imageFile = $form->get('image')->getData();
 
             if ($imageFile) {
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -47,10 +47,9 @@ final class AdminCategoryController extends AbstractController
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    // Tratar exceção
                 }
 
-                $category->setImage($newFilename); // Altere para setImageName se o método for esse
+                $category->setImage($newFilename);
             }
 
             $entityManager->persist($category);
@@ -81,7 +80,7 @@ final class AdminCategoryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile|null $imageFile */
-            $imageFile = $form->get('image')->getData(); // Altere para 'imageName' se necessário
+            $imageFile = $form->get('image')->getData();
 
             if ($imageFile) {
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -94,10 +93,9 @@ final class AdminCategoryController extends AbstractController
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    // Tratar exceção
                 }
 
-                $category->setImage($newFilename); // Altere para setImageName se necessário
+                $category->setImage($newFilename);
             }
 
             $entityManager->flush();

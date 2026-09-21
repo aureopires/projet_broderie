@@ -39,7 +39,7 @@ final class ReviewFactory extends PersistentObjectFactory
             'createdAt' => \DateTimeImmutable::createFromMutable(self::faker()->dateTimeBetween('-1 year', 'now')),
             'product' => ProductFactory::random(),
             'rating' => self::faker()->numberBetween(1, 5),
-            'status' => 'approved',
+            'status' => Review::STATUS_APPROVED,
             'user' => UserFactory::random(),
         ];
     }

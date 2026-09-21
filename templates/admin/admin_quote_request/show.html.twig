@@ -1,13 +1,7 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block mainTitle %}
-<!DOCTYPE html>
-
-<title>QuoteRequest</title>
-{% endblock %}
-
 {% block body %}
-    <h1>QuoteRequest</h1>
+    <h1>Demande de devis</h1>
 
     <table class="table">
         <tbody>
@@ -16,7 +10,7 @@
                 <td>{{ quote_request.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ quote_request.name }}</td>
             </tr>
             <tr>
@@ -71,19 +65,19 @@
                 <td>{{ quote_request.user ? quote_request.user.id : '' }}</td>
             </tr>
             <tr>
-                <th>Status</th>
+                <th>Statut</th>
                 <td>{{ quote_request.status }}</td>
             </tr>
             <tr>
-                <th>CreatedAt</th>
+                <th>Créé le</th>
                 <td>{{ quote_request.createdAt ? quote_request.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('admin_quote_request_index') }}">back to list</a>
+    <a href="{{ path('admin_quote_request_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('admin_quote_request_edit', {'id': quote_request.id}) }}">edit</a>
+    <a href="{{ path('admin_quote_request_edit', {'id': quote_request.id}) }}">Modifier</a>
 
     {{ include('admin/admin_quote_request/_delete_form.html.twig') }}
 {% endblock %}

@@ -4,7 +4,7 @@
     <main class="container quote-page py-5">
         <h1 class="mb-4">Demander un devis</h1>
 
-        {{ form_start(form) }}
+        {{ form_start(form, {attr: {id: 'quote-request-form'}}) }}
             <div class="quote-form-grid">
                 <div class="quote-form-project">
                     {{ form_row(form.message) }}
@@ -25,6 +25,37 @@
                     {{ form_row(form.phone) }}
                 </div>
             </div>
+
+            <aside id="quote-preview" class="quote-preview" aria-live="polite">
+                <h2>Prévisualisation de votre demande</h2>
+                <dl>
+                    <div>
+                        <dt>Article</dt>
+                        <dd data-preview="articleType">—</dd>
+                    </div>
+                    <div>
+                        <dt>Marquage</dt>
+                        <dd data-preview="markingType">—</dd>
+                    </div>
+                    <div>
+                        <dt>Quantité</dt>
+                        <dd data-preview="quantity">—</dd>
+                    </div>
+                    <div>
+                        <dt>Prénom</dt>
+                        <dd data-preview="firstName">—</dd>
+                    </div>
+                    <div>
+                        <dt>Nom</dt>
+                        <dd data-preview="lastName">—</dd>
+                    </div>
+                    <div>
+                        <dt>Organisme</dt>
+                        <dd data-preview="organizationType">—</dd>
+                    </div>
+                </dl>
+            </aside>
+
             <button type="submit" class="btn btn-gold quote-submit">Envoyer</button>
         {{ form_end(form) }}
     </main>

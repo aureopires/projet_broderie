@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,12 +21,12 @@ class AdminQuoteRequestType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('email')
-            ->add('message', TextareaType::class)
-            ->add('articleType', TextType::class, ['required' => false])
-            ->add('articleOrigin', TextType::class, ['required' => false])
-            ->add('markingType', TextType::class, ['required' => false])
+            ->add('name', null, ['label' => 'Nom'])
+            ->add('email', null, ['label' => 'Adresse e-mail'])
+            ->add('message', TextareaType::class, ['label' => 'Message'])
+            ->add('articleType', TextType::class, ['label' => "Type d'article", 'required' => false])
+            ->add('articleOrigin', TextType::class, ['label' => "Origine de l'article", 'required' => false])
+            ->add('markingType', TextType::class, ['label' => 'Type de marquage', 'required' => false])
             ->add('logoFile', FileType::class, [
                 'label' => 'Logo (image)',
                 'mapped' => false,
@@ -40,20 +41,23 @@ class AdminQuoteRequestType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('quantity', IntegerType::class, ['required' => false])
-            ->add('organizationType', TextType::class, ['required' => false])
-            ->add('organizationName', TextType::class, ['required' => false])
-            ->add('phone', TextType::class, ['required' => false])
+            ->add('quantity', IntegerType::class, [
+                'label' => 'Quantité',
+                'required' => false,
+                'constraints' => [new GreaterThanOrEqual(1)],
+            ])
+            ->add('organizationType', TextType::class, ['label' => "Type d'organisme", 'required' => false])
+            ->add('organizationName', TextType::class, ['label' => "Nom de l'organisme", 'required' => false])
+            ->add('phone', TextType::class, ['label' => 'Téléphone', 'required' => false])
             ->add('status', ChoiceType::class, [
                 'choices' => [
-                    'Nouveau' => 'new',
-                    'En attente' => 'pending',
-                    'En traitement' => 'processing',
-                    'Traité' => 'processed',
-                    'Approuvé' => 'approved',
+                    'Nouveau' => QuoteRequest::STATUS_NEW,
+                    'En traitement' => QuoteRequest::STATUS_PROCESSING,
+                    'Terminé' => QuoteRequest::STATUS_FINISHED,
                 ],
             ])
             ->add('createdAt', null, [
+                'label' => 'Date de création',
                 'widget' => 'single_text',
             ])
             ->add('user', EntityType::class, [

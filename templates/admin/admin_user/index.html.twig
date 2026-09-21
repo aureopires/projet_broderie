@@ -1,15 +1,9 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block mainTitle %}
-    <!DOCTYPE html>
-
-    <title>User index</title>
-{% endblock %}
-
 {% block body %}
-    <h1>User index</h1>
+    <h1>Utilisateurs</h1>
 
-    <a href="{{ path('admin_user_new') }}">Create new</a>
+    <a href="{{ path('admin_user_new') }}">Créer</a>
 
     <table class="table">
         <thead>
@@ -17,12 +11,11 @@
             <th>Id</th>
             <th>Email</th>
             <th>Roles</th>
-            <th>Password</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>CreatedAt</th>
-            <th>IsVerified</th>
-            <th>actions</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Créé le</th>
+            <th>Vérifié</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -35,15 +28,15 @@
                 <td>{{ user.firstName }}</td>
                 <td>{{ user.lastName }}</td>
                 <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
+                <td>{{ user.isVerified ? 'Oui' : 'Non' }}</td>
                 <td>
-                    <a href="{{ path('admin_user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('admin_user_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('admin_user_show', {'id': user.id}) }}">Voir</a>
+                    <a href="{{ path('admin_user_edit', {'id': user.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="9">no records found</td>
+                <td colspan="8">Aucun enregistrement.</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -34,7 +34,7 @@ final class AdminProductController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile|null $imageFile */
-            $imageFile = $form->get('image')->getData(); // Altere para 'image' se o campo no seu form for 'image'
+            $imageFile = $form->get('image')->getData();
 
             if ($imageFile) {
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -47,7 +47,6 @@ final class AdminProductController extends AbstractController
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    // Tratar exceção se o upload falhar
                 }
 
                 $product->setImage($newFilename);
@@ -81,7 +80,7 @@ final class AdminProductController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile|null $imageFile */
-            $imageFile = $form->get('image')->getData(); // Altere para 'image' se necessário
+            $imageFile = $form->get('image')->getData();
 
             if ($imageFile) {
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -94,10 +93,8 @@ final class AdminProductController extends AbstractController
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    // Tratar exceção se o upload falhar
                 }
 
-                // Se houver uma imagem antiga e não for link do Picsum, você pode apagá-la do disco se desejar
                 $product->setImage($newFilename);
             }
 

@@ -19,7 +19,6 @@ final class QuoteRequestController extends AbstractController
     {
         $quoteRequest = new QuoteRequest();
 
-        // Se o usuário estiver autenticado, preenche os dados automaticamente
         if ($this->getUser()) {
             $user = $this->getUser();
             if (method_exists($user, 'getFirstName') && method_exists($user, 'getLastName')) {
@@ -53,7 +52,7 @@ final class QuoteRequestController extends AbstractController
             }
 
             $quoteRequest->setCreatedAt(new \DateTimeImmutable());
-            $quoteRequest->setStatus('pending');
+            $quoteRequest->setStatus(QuoteRequest::STATUS_NEW);
 
             $entityManager->persist($quoteRequest);
             $entityManager->flush();

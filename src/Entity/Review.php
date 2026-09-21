@@ -9,6 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ReviewRepository::class)]
 class Review
 {
+    public const STATUS_PENDING = 'pending';
+    public const STATUS_APPROVED = 'approved';
+    public const STATUS_REJECTED = 'rejected';
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -58,9 +62,25 @@ class Review
 
     public function setStatus(string $status): static
     {
+        if (!in_array($status, self::getStatuses(), true)) {
+            throw new \InvalidArgumentException(sprintf('Invalid review status "%s".', $status));
+        }
+
         $this->status = $status;
 
         return $this;
+    }
+
+    /**
+     * @return list<string>
+     */
+    public static function getStatuses(): array
+    {
+        return [
+            self::STATUS_PENDING,
+            self::STATUS_APPROVED,
+            self::STATUS_REJECTED,
+        ];
     }
 
     public function getRating(): ?int

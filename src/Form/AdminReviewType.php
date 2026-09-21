@@ -10,28 +10,34 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Range;
 
 class AdminReviewType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('content')
+            ->add('content', null, ['label' => 'Contenu'])
             ->add('status', ChoiceType::class, [
                 'choices' => [
-                    'pending' => 'pending',
-                    'approved' => 'approved',
-                    'rejected' => 'rejected',
+                    'En attente' => Review::STATUS_PENDING,
+                    'Approuvé' => Review::STATUS_APPROVED,
+                    'Rejeté' => Review::STATUS_REJECTED,
                 ],
-            ])            ->add('rating')
+            ])
+            ->add('rating', null, [
+                'label' => 'Note',
+                'constraints' => [new Range(min: 1, max: 5)],
+            ])
             ->add('createdAt', null, [
+                'label' => 'Date de création',
                 'widget' => 'single_text',
             ])
             ->add('product', EntityType::class, [
                 'class' => Product::class,
                 'choice_label' => 'title',
-                'required' => false, // Permite que o campo não seja obrigatório
-                'placeholder' => 'Général (Site)', // Cria a opção vazia com esse texto no select
+                'required' => false,
+                'placeholder' => 'Général (site)',
                 'label' => 'Produit (Optionnel)'
             ])
             ->add('user', EntityType::class, [
