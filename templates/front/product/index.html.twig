@@ -29,17 +29,9 @@
                     <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden product-card">
                         {% if product.image is defined and product.image %}
                             {% if product.image starts with 'https://' %}
-                                <button type="button" class="lightbox-trigger p-0 border-0 w-100"
-                                        data-lightbox-src="{{ product.image }}"
-                                        data-lightbox-title="{{ product.title }}">
-                                    <img src="{{ product.image }}" class="card-img-top object-fit-cover" style="height: 240px;" alt="{{ product.title }}">
-                                </button>
+                                <img src="{{ product.image }}" class="card-img-top object-fit-cover" style="height: 240px;" alt="{{ product.title }}">
                             {% else %}
-                                <button type="button" class="lightbox-trigger p-0 border-0 w-100"
-                                        data-lightbox-src="{{ asset('uploads/products/' ~ product.image) }}"
-                                        data-lightbox-title="{{ product.title }}">
-                                    <img src="{{ asset('uploads/products/' ~ product.image) }}" class="card-img-top object-fit-cover" style="height: 240px;" alt="{{ product.title }}">
-                                </button>
+                                <img src="{{ asset('uploads/products/' ~ product.image) }}" class="card-img-top object-fit-cover" style="height: 240px;" alt="{{ product.title }}">
                             {% endif %}
                         {% else %}
                             <div class="bg-light text-muted d-flex align-items-center justify-content-center"
