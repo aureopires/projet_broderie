@@ -201,32 +201,6 @@ body {
     margin-left: calc(50% + 1.5rem);
     margin-top: 1.5rem;
 }
-.quote-preview {
-    margin-top: 2rem;
-    padding: 1rem 1.25rem;
-    border: 1px solid var(--border-color);
-    background: var(--card-bg);
-}
-.quote-preview h2 {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-.quote-preview dl {
-    margin: 0;
-}
-.quote-preview dl > div {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: .45rem 0;
-    border-bottom: 1px solid var(--border-color);
-}
-.quote-preview dl > div:last-child {
-    border-bottom: 0;
-}
-.quote-preview dt {
-    color: var(--muted-text);
-}
 .dark-mode .form-control,
 .dark-mode .form-select {
     color: var(--text-dark);
@@ -235,11 +209,6 @@ body {
 }
 .dark-mode .form-control::placeholder {
     color: var(--muted-text);
-}
-.quote-preview dd {
-    margin: 0;
-    font-weight: 600;
-    text-align: right;
 }
 @media (max-width: 767.98px) {
     .quote-form-grid {
