@@ -1,4 +1,22 @@
 {{ form_start(form) }}
+
+{% if category.image %}
+    <div class="mb-3">
+        <p>Image actuelle :</p>
+        <img src="{{ asset('uploads/categories/' ~ category.image) }}"
+             alt="{{ category.name }}"
+             style="width: 120px; height: 90px; object-fit: cover;">
+    </div>
+{% endif %}
+
+<div class="mb-3" data-image-preview-container hidden>
+    <p>Prévisualisation :</p>
+    <img src=""
+         alt="Prévisualisation de l'image de la catégorie"
+         data-image-preview
+         style="width: 120px; height: 90px; object-fit: cover;">
+</div>
+
     {{ form_widget(form) }}
     <button class="btn btn-gold">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

@@ -33,6 +33,7 @@ final class AdminCategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $category->setSlug((string) $slugger->slug((string) $category->getName())->lower());
             /** @var UploadedFile|null $imageFile */
             $imageFile = $form->get('image')->getData();
 
@@ -81,6 +82,7 @@ final class AdminCategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $category->setSlug((string) $slugger->slug((string) $category->getName())->lower());
             /** @var UploadedFile|null $imageFile */
             $imageFile = $form->get('image')->getData();
 

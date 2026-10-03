@@ -8,10 +8,6 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ product.id }}</td>
-            </tr>
-            <tr>
                 <th>Titre</th>
                 <td>{{ product.title }}</td>
             </tr>
@@ -25,11 +21,15 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td>{{ product.image }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ product.slug }}</td>
+                <td>
+                    {% if product.image %}
+                        <img src="{{ asset('uploads/products/' ~ product.image) }}"
+                             alt="{{ product.title }}"
+                             style="width: 120px; height: 90px; object-fit: cover;">
+                    {% else %}
+                        Aucune image
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>Actif</th>
@@ -41,6 +41,22 @@
             </tr>
         </tbody>
     </table>
+
+    <h2>Catégories liées</h2>
+
+    {% if product.categories is not empty %}
+        <ul>
+            {% for category in product.categories %}
+                <li>
+                    <a href="{{ path('admin_category_show', {'id': category.id}) }}">
+                        {{ category.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucune catégorie n'est liée à ce produit.</p>
+    {% endif %}
 
     <a href="{{ path('admin_product_edit', {'id': product.id}) }}" class="btn btn-warning">Modifier</a>
 

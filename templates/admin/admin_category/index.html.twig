@@ -8,17 +8,22 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th><th>Nom</th><th>Image</th><th>Slug</th><th>Description</th><th>Actions</th>
+                <th>Nom</th><th>Image</th><th>Description</th><th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for category in categories %}
             <tr>
-                <td>{{ category.id }}</td>
                 <td>{{ category.name }}</td>
-                <td>{{ category.image }}</td>
-                <td>{{ category.slug }}</td>
-                <td>{{ category.description }}</td>
+                <td>
+                    {% if category.image %}
+                        <img src="{{ asset('uploads/categories/' ~ category.image) }}"
+                             alt="{{ category.name }}"
+                             style="width: 80px; height: 60px; object-fit: cover;">
+                    {% else %}
+                        Aucune image
+                    {% endif %}
+                </td>                <td>{{ category.description }}</td>
                 <td>
                     <a href="{{ path('admin_category_show', {'id': category.id}) }}">Voir</a>
                     <a href="{{ path('admin_category_edit', {'id': category.id}) }}">Modifier</a>
@@ -26,7 +31,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">Aucun enregistrement.</td>
+                <td colspan="5">Aucun enregistrement.</td>
             </tr>
         {% endfor %}
         </tbody>

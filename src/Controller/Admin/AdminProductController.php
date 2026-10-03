@@ -7,7 +7,6 @@ use App\Form\AdminProductType;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,6 +32,8 @@ final class AdminProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $product->setCreatedAt(new \DateTimeImmutable());
+            $product->setSlug((string) $slugger->slug((string) $product->getTitle())->lower());
             /** @var UploadedFile|null $imageFile */
             $imageFile = $form->get('image')->getData();
 
@@ -41,13 +42,10 @@ final class AdminProductController extends AbstractController
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
 
-                try {
-                    $imageFile->move(
-                        $this->getParameter('products_directory'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                }
+                $imageFile->move(
+                    $this->getParameter('products_directory'),
+                    $newFilename
+                );
 
                 $product->setImage($newFilename);
             }
@@ -81,6 +79,7 @@ final class AdminProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $product->setSlug((string) $slugger->slug((string) $product->getTitle())->lower());
             /** @var UploadedFile|null $imageFile */
             $imageFile = $form->get('image')->getData();
 
@@ -89,13 +88,10 @@ final class AdminProductController extends AbstractController
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
 
-                try {
-                    $imageFile->move(
-                        $this->getParameter('products_directory'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                }
+                $imageFile->move(
+                    $this->getParameter('products_directory'),
+                    $newFilename
+                );
 
                 $product->setImage($newFilename);
             }

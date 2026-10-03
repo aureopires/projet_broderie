@@ -21,6 +21,7 @@ class AdminCategoryType extends AbstractType
                 'label' => 'Image de la category',
                 'mapped' => false,
                 'required' => false,
+                'attr' => ['data-image-input' => true],
                 'constraints' => [
                     new File(maxSize: '2M', mimeTypes: [
                         'image/jpeg',
@@ -29,11 +30,10 @@ class AdminCategoryType extends AbstractType
                     ], mimeTypesMessage: 'Veuillez télécharger une image valide (JPEG, PNG, WEBP)')
                 ],
             ])
-            ->add('slug', null, ['label' => 'Slug'])
             ->add('description', null, ['label' => 'Description'])
             ->add('products', EntityType::class, [
                 'class' => Product::class,
-                'choice_label' => 'id',
+                'choice_label' => 'title',
                 'multiple' => true,
             ])
         ;
