@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\QuoteRequest;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Form\AbstractType;
@@ -102,6 +103,11 @@ class QuoteRequestType extends AbstractType
                 'label' => 'Décrivez-nous votre projet',
                 'required' => true,
                 'attr' => ['placeholder' => 'Ajouter réponse ici', 'rows' => 5],
+            ])
+            -> add ('submit', SubmitType::class, [
+                'label' => 'Envoyer',
+                'attr' => ['class' => 'btn btn-gold quote-submit'],
+                
             ])
         ;
     }

@@ -3,6 +3,8 @@
 {% block body %}
     <h1>Demande de devis</h1>
 
+    <a href="{{ path('admin_quote_request_index') }}">Retour à la liste</a>
+
     <table class="table">
         <tbody>
             <tr>
@@ -75,9 +77,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_quote_request_index') }}">Retour à la liste</a>
-
-    <a href="{{ path('admin_quote_request_edit', {'id': quote_request.id}) }}">Modifier</a>
+    <a href="{{ path('admin_quote_request_edit', {'id': quote_request.id}) }}" class="btn btn-warning">Modifier</a>
 
     {{ include('admin/admin_quote_request/_delete_form.html.twig') }}
 {% endblock %}

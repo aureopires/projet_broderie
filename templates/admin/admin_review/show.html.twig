@@ -3,6 +3,8 @@
 {% block body %}
     <h1>Avis</h1>
 
+    <a href="{{ path('admin_review_index') }}">Retour à la liste</a>
+
     <table class="table">
         <tbody>
         <tr>
@@ -38,9 +40,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_review_index') }}">Retour à la liste</a>
-
-    <a href="{{ path('admin_review_edit', {'id': review.id}) }}">Modifier</a>
+    <a href="{{ path('admin_review_edit', {'id': review.id}) }}" class="btn btn-warning">Modifier</a>
 
     {{ include('admin/admin_review/_delete_form.html.twig') }}
 {% endblock %}

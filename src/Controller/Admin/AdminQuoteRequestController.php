@@ -36,6 +36,8 @@ final class AdminQuoteRequestController extends AbstractController
             $entityManager->persist($quoteRequest);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Demande de devis ajoutée avec succès.');
+
             return $this->redirectToRoute('admin_quote_request_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -63,6 +65,8 @@ final class AdminQuoteRequestController extends AbstractController
             $this->storeLogo($form, $quoteRequest);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Demande de devis modifiée avec succès.');
+
             return $this->redirectToRoute('admin_quote_request_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -78,6 +82,7 @@ final class AdminQuoteRequestController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$quoteRequest->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($quoteRequest);
             $entityManager->flush();
+            $this->addFlash('success', 'Demande de devis supprimée avec succès.');
         }
 
         return $this->redirectToRoute('admin_quote_request_index', [], Response::HTTP_SEE_OTHER);

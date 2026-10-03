@@ -43,6 +43,8 @@ final class AdminUserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Utilisateur ajouté avec succès.');
+
             return $this->redirectToRoute('admin_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -84,6 +86,8 @@ final class AdminUserController extends AbstractController
 
             $entityManager->flush();
 
+            $this->addFlash('success', 'Utilisateur modifié avec succès.');
+
             return $this->redirectToRoute('admin_user_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -99,6 +103,7 @@ final class AdminUserController extends AbstractController
         if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($user);
             $entityManager->flush();
+            $this->addFlash('success', 'Utilisateur supprimé avec succès.');
         }
 
         return $this->redirectToRoute('admin_user_index', [], Response::HTTP_SEE_OTHER);

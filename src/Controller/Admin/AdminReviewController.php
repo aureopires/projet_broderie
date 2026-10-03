@@ -33,6 +33,8 @@ final class AdminReviewController extends AbstractController
             $entityManager->persist($review);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Avis ajouté avec succès.');
+
             return $this->redirectToRoute('admin_review_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -59,6 +61,8 @@ final class AdminReviewController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
+            $this->addFlash('success', 'Avis modifié avec succès.');
+
             return $this->redirectToRoute('admin_review_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -74,6 +78,7 @@ final class AdminReviewController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$review->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($review);
             $entityManager->flush();
+            $this->addFlash('success', 'Avis supprimé avec succès.');
         }
 
         return $this->redirectToRoute('admin_review_index', [], Response::HTTP_SEE_OTHER);

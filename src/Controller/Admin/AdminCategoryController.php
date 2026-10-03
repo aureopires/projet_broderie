@@ -55,6 +55,8 @@ final class AdminCategoryController extends AbstractController
             $entityManager->persist($category);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Catégorie ajoutée avec succès.');
+
             return $this->redirectToRoute('admin_category_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -100,6 +102,8 @@ final class AdminCategoryController extends AbstractController
 
             $entityManager->flush();
 
+            $this->addFlash('success', 'Catégorie modifiée avec succès.');
+
             return $this->redirectToRoute('admin_category_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -115,6 +119,7 @@ final class AdminCategoryController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($category);
             $entityManager->flush();
+            $this->addFlash('success', 'Catégorie supprimée avec succès.');
         }
 
         return $this->redirectToRoute('admin_category_index', [], Response::HTTP_SEE_OTHER);
