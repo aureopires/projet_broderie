@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Email</th>
                 <th>Message</th>
@@ -29,7 +28,6 @@
         <tbody>
         {% for quote_request in quote_requests %}
             <tr>
-                <td>{{ quote_request.id }}</td>
                 <td>{{ quote_request.name }}</td>
                 <td>{{ quote_request.email }}</td>
                 <td>{{ quote_request.message }}</td>
@@ -38,7 +36,18 @@
                 <td>{{ quote_request.articleType }}</td>
                 <td>{{ quote_request.articleOrigin }}</td>
                 <td>{{ quote_request.markingType }}</td>
-                <td>{{ quote_request.logo }}</td>
+                <td>
+                    {% if quote_request.logo %}
+                        <a href="{{ asset('uploads/quote-logos/' ~ quote_request.logo) }}"
+                           target="_blank" rel="noopener">
+                            <img src="{{ asset('uploads/quote-logos/' ~ quote_request.logo) }}"
+                                 alt="Logo de {{ quote_request.name }}"
+                                 style="width: 80px; height: 60px; object-fit: contain;">
+                        </a>
+                    {% else %}
+                        Aucun logo
+                    {% endif %}
+                </td>
                 <td>{{ quote_request.quantity }}</td>
                 <td>{{ quote_request.organizationType }}</td>
                 <td>{{ quote_request.organizationName }}</td>
@@ -51,7 +60,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="16">Aucun enregistrement.</td>
+                <td colspan="15">Aucun enregistrement.</td>
             </tr>
         {% endfor %}
         </tbody>

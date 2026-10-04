@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Produit / Cible</th>
             <th>Contenu</th>
             <th>Statut</th>
@@ -20,7 +19,6 @@
         <tbody>
         {% for review in reviews %}
             <tr>
-                <td>{{ review.id }}</td>
                 <td>
                     {% if review.product %}
                         {{ review.product.title }}
