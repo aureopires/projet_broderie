@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         {% block title %}L'Aiguille des Volcans | Atelier de Broderie Artisanale{% endblock %}
     </title>
@@ -15,8 +16,9 @@
     {% endblock %}
 </head>
 <body>
+<a href="#main-content" class="visually-hidden-focusable skip-link">Aller au contenu</a>
 {% include 'admin/common/header.html.twig' %}
 {% include 'common/_alert.html.twig' %}
-{% block body %}{% endblock %}
+<div id="main-content" tabindex="-1" class="container-fluid py-4">{% block body %}{% endblock %}</div>
 </body>
 </html>

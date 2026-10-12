@@ -7,11 +7,9 @@ use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,20 +25,7 @@ class AdminQuoteRequestType extends AbstractType
             ->add('articleType', TextType::class, ['label' => "Type d'article", 'required' => false])
             ->add('articleOrigin', TextType::class, ['label' => "Origine de l'article", 'required' => false])
             ->add('markingType', TextType::class, ['label' => 'Type de marquage', 'required' => false])
-            ->add('logoFile', FileType::class, [
-                'label' => 'Logo (image)',
-                'mapped' => false,
-                'required' => false,
-                'help' => 'Fichiers images uniquement (max. 15 Mo)',
-                'attr' => ['accept' => 'image/*'],
-                'constraints' => [
-                    new File([
-                        'maxSize' => '15M',
-                        'mimeTypes' => ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml'],
-                        'mimeTypesMessage' => 'Veuillez sélectionner une image valide.',
-                    ]),
-                ],
-            ])
+            ->add('logoFile', QuoteLogoType::class)
             ->add('quantity', IntegerType::class, [
                 'label' => 'Quantité',
                 'required' => false,

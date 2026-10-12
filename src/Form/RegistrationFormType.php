@@ -12,18 +12,22 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
+            ->add('email', EmailType::class, ['constraints' => [new NotBlank(), new Email(), new Length(max: 180)]])
             ->add('first_name', TextType::class, [
                 'label' => 'Prénom',
+                'constraints' => [new NotBlank(normalizer: 'trim'), new Length(max: 255)],
             ])
             ->add('last_name', TextType::class, [
                 'label' => 'Nom',
+                'constraints' => [new NotBlank(normalizer: 'trim'), new Length(max: 255)],
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
@@ -32,13 +36,13 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank(
-                        message: 'Please enter a password',
+                        message: 'Veuillez saisir un mot de passe.',
                     ),
                     new Length(
-                        min: 6,
+                        min: 12,
                         max: 4096,
                         // max length allowed by Symfony for security reasons
-                        minMessage: 'Your password should be at least {{ limit }} characters',
+                        minMessage: 'Utilisez au moins {{ limit }} caractères.',
                     ),
                 ],
             ]);

@@ -1,0 +1,22 @@
+[
+    {
+        "privacyMaintenance": false,
+        "status": 200
+    },
+    {
+        "url": "\/contact",
+        "privacyLinks": 2
+    },
+    {
+        "url": "\/quote\/new",
+        "privacyLinks": 2
+    },
+    {
+        "url": "\/register",
+        "privacyLinks": 2
+    },
+    {
+        "privacyMaintenance": true,
+        "status": 200
+    }
+]

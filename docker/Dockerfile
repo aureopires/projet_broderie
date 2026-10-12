@@ -31,7 +31,7 @@ RUN composer install --no-scripts
 ######
 FROM base AS dev
 
-RUN install-php-extensions xdebug
+RUN install-php-extensions xdebug pdo_sqlite
 COPY docker/xdebug.ini /usr/local/etc/php/conf.d/
 
 # Install Git to enable project creation via Symfony CLI

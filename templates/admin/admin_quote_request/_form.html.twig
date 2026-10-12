@@ -3,8 +3,8 @@
     {% if quote_request is defined and quote_request.logo %}
         <p class="text-muted">
             Logo actuel :
-            <a href="{{ asset('uploads/quote-logos/' ~ quote_request.logo) }}" target="_blank" rel="noopener">
-                {{ quote_request.logo }}
+            <a href="{{ path('admin_quote_request_logo', {id: quote_request.id}) }}">
+                Télécharger le logo
             </a>
         </p>
     {% endif %}

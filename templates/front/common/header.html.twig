@@ -4,28 +4,35 @@
             <img src="{{ asset('build/images/logo_nav.png') }}" alt="L'Aiguille des Volcans" height="75"
                  class="d-inline-block align-text-top" data-theme-logo>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Afficher ou masquer le menu">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item"><a
                         class="nav-link {{ app.request.attributes.get('_route') == 'app_home' ? 'active' : '' }}"
+                        {% if app.request.attributes.get('_route') == 'app_home' %}aria-current="page"{% endif %}
                         href="{{ path('app_home') }}">Accueil</a></li>
                 <li class="nav-item"><a
                         class="nav-link {{ app.request.attributes.get('_route') == 'app_about' ? 'active' : '' }}"
+                        {% if app.request.attributes.get('_route') == 'app_about' %}aria-current="page"{% endif %}
                         href="{{ path('app_about') }}">À Propos</a></li>
                 <li class="nav-item"><a
                         class="nav-link {{ app.request.attributes.get('_route') == 'app_category_index' ? 'active' : '' }}"
+                        {% if app.request.attributes.get('_route') == 'app_category_index' %}aria-current="page"{% endif %}
                         href="{{ path('app_category_index') }}">Prestations</a></li>
                 <li class="nav-item"><a
                         class="nav-link {{ app.request.attributes.get('_route') == 'app_product_index' ? 'active' : '' }}"
+                        {% if app.request.attributes.get('_route') == 'app_product_index' %}aria-current="page"{% endif %}
                         href="{{ path('app_product_index') }}">Galerie</a></li>
                 <li class="nav-item"><a
                         class="nav-link {{ app.request.attributes.get('_route') == 'app_quote_new' ? 'active' : '' }}"
+                        {% if app.request.attributes.get('_route') == 'app_quote_new' %}aria-current="page"{% endif %}
                         href="{{ path('app_quote_new') }}">Demande de devis</a></li>
                 <li class="nav-item"><a
                         class="nav-link {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}"
+                        {% if app.request.attributes.get('_route') == 'app_contact' %}aria-current="page"{% endif %}
                         href="{{ path('app_contact') }}">Contact</a></li>
                 <li class="nav-item ms-lg-2">
                     <button type="button" class="btn btn-theme-toggle" data-theme-toggle

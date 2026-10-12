@@ -1,0 +1,149 @@
+
+--- PAGE 1 ---
+Recettes de cuisine pour
+animaux
+A o u t  2 0 2 5
+POEI - DWWM
+
+--- PAGE 2 ---
+Sommaire
+Introduction
+Maquette
+Technologies
+Démonstration
+Retours d’expérience
+Conclusion
+
+--- PAGE 3 ---
+Aider les animaux à mieux manger
+Aider les propriétaires d'animaux à trouver des recettes plus
+facilement
+Public visé : Les propriétaires d'animaux
+Objectifs et Public 
+
+--- PAGE 4 ---
+Principales fonctionnalités retenues
+Register / Login / Logout 
+Accepter ou refuser les 
+recettes et les commentaires
+Page admin
+Like des recettes
+Recettes - Commentaires
+Affichage 
+Ajout 
+Modification
+Suppresion Repo GitHub
+
+--- PAGE 5 ---
+Priorités et maquettes
+Voir la maquette
+CRUD
+Admin
+Connexion
+
+--- PAGE 6 ---
+UML
+
+--- PAGE 7 ---
+Base de données
+
+--- PAGE 8 ---
+Technologies
+Backend
+Frontend
+Symfony / Twig
+Base de données
+MySQL
+Requête AJAX
+Style
+JavaScript / CSS
+
+--- PAGE 9 ---
+Librairies
+KngPaginatorBundle
+ CraueFormFlowBundle
+Faker
+
+--- PAGE 10 ---
+Like des recettes
+Couleur du cœur
+Nombre de like
+Requête AJAX 
+
+--- PAGE 11 ---
+Admin
+Status 200 : en cours de validation
+Status 300 : validé
+Status 400 : supprimé
+Suppression logique
+Valider/refuser recettes et commentaires
+IsGranted
+Accès page admin
+
+--- PAGE 12 ---
+Admin
+Accepter une recette 
+Refuser une recette 
+
+--- PAGE 13 ---
+Ajout / Modification / Suppression
+Recette
+Symfony utilise l'attribut data-prototype pour stocker le HTML du
+formulaire de la liste des ingrédients
+__name__ est un placeholder dans Symfony qui doit être remplacé
+par un index unique
+CollectionType 
+Ajout : nouvelle instance de la class Recipe
+Modification : la recette actuelle (id en paramètre de route)
+Suppression :  change le status par “supprimé”
+Ajout, modification, suppression
+Formulaire en plusieurs étapes
+Form Flow
+
+--- PAGE 14 ---
+Ajouter une recette 
+Supprimer une recette 
+Recette
+
+--- PAGE 15 ---
+Ajout / Modification / Suppression
+Commentaire
+Ajout : nouvelle instance de la class Comment
+Modification : le commentaire actuel (id en paramètre de route)
+Suppression :  change le status par “supprimé”
+Ajout, modification, suppression
+
+--- PAGE 16 ---
+Ajouter un commentaire 
+Supprimer un commentaire
+Commentaire
+
+--- PAGE 17 ---
+Pour la suite
+Login / Register
+Taille image upload
+Réduire la taille des images au
+moment de l’upload de l’utilisateur
+
+--- PAGE 18 ---
+Difficultés rencontrées et solutions
+Form Flow Aide et recherche internet /
+documentation
+Message flash alert
+
+--- PAGE 19 ---
+Axes d’améliorations
+Ajouter des tests
+Ajouter des categories depuis la page admin
+Option mdp oublié
+Modifier son mdp depuis la page profil
+Faire une page d’erreur
+
+--- PAGE 20 ---
+Conclusion
+Faire chaque étapes d’un CRUD avec Symfony
+Gérer des profiles utilisateurs / admin
+Système d’authentification
+
+--- PAGE 21 ---
+Merci

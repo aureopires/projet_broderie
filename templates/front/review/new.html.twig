@@ -5,6 +5,8 @@
 {% block body %}
     <div class="container my-5">
         <h1>Laisser un avis</h1>
+        {{ include('front/legal/_privacy_notice.html.twig', {purpose: 'gérer votre avis et le publier après modération', optionalFields: 'le choix d’un produit'}) }}
+        <p class="small text-muted">Après validation, votre prénom, votre commentaire, votre note et la date de l’avis seront visibles par les visiteurs. Votre adresse e-mail ne sera pas affichée.</p>
 
         {{ form_start(reviewForm) }}
         {{ form_widget(reviewForm) }}

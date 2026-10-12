@@ -10,9 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const modal = new Modal(modalElement);
+    let lastTrigger = null;
 
     document.querySelectorAll('[data-lightbox-src]').forEach((trigger) => {
         trigger.addEventListener('click', () => {
+            lastTrigger = trigger;
             modalImage.src = trigger.dataset.lightboxSrc;
             modalImage.alt = trigger.dataset.lightboxTitle || '';
             modalTitle.textContent = trigger.dataset.lightboxTitle || '';
@@ -24,5 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         modalImage.src = '';
         modalImage.alt = '';
         modalTitle.textContent = '';
+        lastTrigger?.focus();
     });
 });

@@ -1,0 +1,34 @@
+{
+    "home": {
+        "path": "\/",
+        "status": 200
+    },
+    "gallery": {
+        "path": "\/product",
+        "status": 200
+    },
+    "quote": {
+        "path": "\/quote\/new",
+        "status": 200
+    },
+    "login": {
+        "path": "\/login",
+        "status": 200
+    },
+    "admin": {
+        "path": "\/admin",
+        "status": 302
+    },
+    "review": {
+        "path": "\/review\/new",
+        "status": 302
+    },
+    "missing": {
+        "path": "\/product\/dossier-inexistant",
+        "status": 404
+    },
+    "category": {
+        "path": "\/product\/category\/broderie-personnalisee",
+        "status": 500
+    }
+}

@@ -1,0 +1,18 @@
+{% extends 'front/base.html.twig' %}
+{% block body %}
+    <section class="container py-5">
+        <h1>Confirmer mon adresse e-mail</h1>
+        {% if app.user.isVerified %}
+            <p>Votre adresse e-mail est déjà confirmée.</p>
+        {% else %}
+            {% if rateLimited %}
+                <p role="alert">Trop de demandes. Veuillez réessayer dans une heure.</p>
+            {% endif %}
+            <p>Recevez un nouveau lien de confirmation à l’adresse associée à votre compte.</p>
+            <form method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token('resend_confirmation') }}">
+                <button class="btn btn-gold" type="submit">Renvoyer le lien</button>
+            </form>
+        {% endif %}
+    </section>
+{% endblock %}

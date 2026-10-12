@@ -37,6 +37,7 @@ final class MaintenanceSubscriber implements EventSubscriberInterface
 
         if (
             $path === '/login'
+            || $path === '/confidentialite'
             || str_starts_with($path, '/build/')
             || str_starts_with($path, '/assets/')
             || str_starts_with($path, '/bundles/')

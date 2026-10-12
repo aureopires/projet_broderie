@@ -36,12 +36,9 @@ final class ProductController extends AbstractController
         }
 
         $products = $productRepository->findByCategorySlug($slug);
-        $categories = $categoryRepository->findAll();
-
-        return $this->render('front/product/category.html.twig', [
+        return $this->render('front/category/show.html.twig', [
             'category' => $category,
             'products' => $products,
-            'categories' => $categories,
         ]);
     }
 

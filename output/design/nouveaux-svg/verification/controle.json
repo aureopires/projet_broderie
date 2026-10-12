@@ -1,0 +1,124 @@
+{
+  "sources": [
+    "Contact.png",
+    "Dashboard Admin.png",
+    "Demande de devis.png",
+    "galerie.png",
+    "Accueil.png",
+    "Prestations.png",
+    "à propos.png"
+  ],
+  "pages": [
+    {
+      "id": "accueil",
+      "device": "Desktop",
+      "width": 1440,
+      "height": 2864,
+      "elements": 86
+    },
+    {
+      "id": "accueil",
+      "device": "Mobile",
+      "width": 390,
+      "height": 4283,
+      "elements": 80
+    },
+    {
+      "id": "a-propos",
+      "device": "Desktop",
+      "width": 1440,
+      "height": 4262,
+      "elements": 63
+    },
+    {
+      "id": "a-propos",
+      "device": "Mobile",
+      "width": 390,
+      "height": 5386,
+      "elements": 56
+    },
+    {
+      "id": "prestations",
+      "device": "Desktop",
+      "width": 1440,
+      "height": 1266,
+      "elements": 61
+    },
+    {
+      "id": "prestations",
+      "device": "Mobile",
+      "width": 390,
+      "height": 2646,
+      "elements": 54
+    },
+    {
+      "id": "galerie",
+      "device": "Desktop",
+      "width": 1440,
+      "height": 1792,
+      "elements": 87
+    },
+    {
+      "id": "galerie",
+      "device": "Mobile",
+      "width": 390,
+      "height": 3427,
+      "elements": 80
+    },
+    {
+      "id": "demande-de-devis",
+      "device": "Desktop",
+      "width": 1440,
+      "height": 1736,
+      "elements": 73
+    },
+    {
+      "id": "demande-de-devis",
+      "device": "Mobile",
+      "width": 390,
+      "height": 1818,
+      "elements": 66
+    },
+    {
+      "id": "contact",
+      "device": "Desktop",
+      "width": 1440,
+      "height": 1987,
+      "elements": 54
+    },
+    {
+      "id": "contact",
+      "device": "Mobile",
+      "width": 390,
+      "height": 2123,
+      "elements": 47
+    },
+    {
+      "id": "dashboard-admin",
+      "device": "Desktop",
+      "width": 1440,
+      "height": 1672,
+      "elements": 143
+    },
+    {
+      "id": "dashboard-admin",
+      "device": "Mobile",
+      "width": 390,
+      "height": 2382,
+      "elements": 136
+    }
+  ],
+  "svg_count": 29,
+  "checks": [
+    "XML valide",
+    "Éléments des pages dans les limites",
+    "Textes des pages mesurés sans dépassement horizontal"
+  ],
+  "limits": [
+    "Import Figma non exécuté",
+    "Mobile adapté depuis les prints desktop",
+    "Nom masqué admin remplacé par Client ; statut proposé"
+  ],
+  "rendered_svg_count": 29,
+  "zip_checked": true
+}

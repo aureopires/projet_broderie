@@ -4,6 +4,7 @@
 {% block body %}
     <main class="container quote-page py-5">
         <h1 class="mb-4">Demander un devis</h1>
+        {{ include('front/legal/_privacy_notice.html.twig', {purpose: 'étudier votre projet et répondre à votre demande de devis', optionalFields: 'le logo et le nom de votre organisme'}) }}
 
         {{ form_start(form) }}
         {{ form_end(form) }}

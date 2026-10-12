@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="pt-BR"><meta charset="utf-8">
+<style>body{font:14px Arial,sans-serif;margin:24px;color:#2c2522}h2{font-size:20px}p{line-height:1.5}select,input,button{font:inherit;margin:8px 0;width:100%;padding:10px;box-sizing:border-box}button{background:#b89753;color:white;border:0;border-radius:4px;cursor:pointer}button:disabled{opacity:.6}#status{white-space:pre-wrap;font-size:12px}</style>
+<h2>Importar no Figma</h2>
+<p>Textos, imagens e formas editáveis. Escolha <b>maquettes.json</b> incluído nesta pasta.</p>
+<input id="file" type="file" accept=".json">
+<label for="scope">Conteúdo</label><select id="scope"><option value="hd">7 páginas desktop e 7 mobile</option><option value="desktop">7 páginas desktop</option><option value="mobile">7 páginas mobile</option><option value="wire">14 wireframes</option><option value="brief">Briefing e recursos</option><option value="all">Tudo: briefing + 28 telas</option></select>
+<button id="import" disabled>Importar</button><p id="status" role="status">Nenhum arquivo selecionado.</p>
+<script>
+let bundle;
+const file=document.getElementById('file'),button=document.getElementById('import'),status=document.getElementById('status');
+file.onchange=async()=>{try{bundle=JSON.parse(await file.files[0].text());if(!Array.isArray(bundle.screens)||!bundle.assets)throw Error('Arquivo inválido.');button.disabled=false;status.textContent=bundle.screens.length+' telas disponíveis.'}catch(e){button.disabled=true;status.textContent=String(e)}};
+button.onclick=()=>{button.disabled=true;status.textContent='Importando…';parent.postMessage({pluginMessage:{type:'import',bundle,scope:document.getElementById('scope').value}},'*')};
+window.onmessage=e=>{const m=e.data.pluginMessage;if(!m)return;status.textContent=m.text;if(m.type==='done'||m.type==='error')button.disabled=false};
+</script></html>

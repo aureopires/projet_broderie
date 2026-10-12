@@ -6,6 +6,9 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,7 +26,17 @@ class AdminUserType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
             ])
-            ->add('password', null, ['label' => 'Mot de passe'])
+            ->add('plainPassword', PasswordType::class, [
+                'label' => 'Nouveau mot de passe',
+                'mapped' => false,
+                'required' => $options['password_required'],
+                'attr' => ['autocomplete' => 'new-password'],
+                'help' => $options['password_required'] ? 'Au moins 12 caractères.' : 'Laissez vide pour conserver le mot de passe actuel.',
+                'constraints' => array_merge(
+                    [new Length(min: 12, max: 4096, minMessage: 'Utilisez au moins {{ limit }} caractères.')],
+                    $options['password_required'] ? [new NotBlank(message: 'Veuillez saisir un mot de passe.')] : [],
+                ),
+            ])
             ->add('firstName', null, ['label' => 'Prénom'])
             ->add('lastName', null, ['label' => 'Nom'])
             ->add('createdAt', null, [
@@ -48,6 +61,8 @@ class AdminUserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'password_required' => false,
         ]);
+        $resolver->setAllowedTypes('password_required', 'bool');
     }
 }

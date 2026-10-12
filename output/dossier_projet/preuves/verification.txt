@@ -1,0 +1,10 @@
+Vérifications exécutées le 11 octobre 2026 sur le dépôt b406ce8
+- lint:twig templates : 51 fichiers valides
+- lint:yaml config : 26 fichiers valides
+- doctrine:schema:validate : mappage correct et schéma synchronisé
+- php bin/phpunit : No tests executed! (PHPUnit 11.5.56 ; PHP conteneur 8.5.9)
+- 8 requêtes BrowserKit : résultats dans http-results.json
+- Formulaire QuoteRequestType : résultats dans form-results.json
+Conditions : maintenance désactivée uniquement dans le processus de lecture ; validation des formulaires en mémoire avec CSRF désactivé uniquement pour ces essais ; aucune écriture métier en base ni aucun envoi de courriel.
+Captures : HTML produit par Symfony local, rendu par navigateur avec les ressources locales ; pas de capture du serveur public.
+Dossier : 36 pages de corps, couverture, 2 pages de sommaire, 4 pages d'annexes. La pagination finale est vérifiée sur le PDF exporté par Word.

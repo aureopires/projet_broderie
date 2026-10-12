@@ -4,18 +4,20 @@ namespace App\Controller\Front;
 
 use App\Entity\QuoteRequest;
 use App\Form\QuoteRequestType;
+use App\Service\QuoteLogoStorage;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/quote', name: 'app_quote_')]
 final class QuoteRequestController extends AbstractController
 {
     #[Route('/new', name: 'new')]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, QuoteLogoStorage $logos): Response
     {
         $quoteRequest = new QuoteRequest();
 
@@ -38,24 +40,26 @@ final class QuoteRequestController extends AbstractController
             $lastName = (string) $form->get('lastName')->getData();
             $quoteRequest->setName(trim($firstName . ' ' . $lastName));
 
-            /** @var UploadedFile|null $logoFile */
             $logoFile = $form->get('logoFile')->getData();
-            if ($logoFile) {
-                $logoDirectory = $this->getParameter('quote_logos_directory');
-                if (!is_dir($logoDirectory) && !mkdir($logoDirectory, 0755, true) && !is_dir($logoDirectory)) {
-                    throw new \RuntimeException('Impossible de créer le dossier de stockage du logo.');
+            try {
+                if ($logoFile) {
+                    $quoteRequest->setLogo($logos->store($logoFile));
                 }
-
-                $logoFilename = bin2hex(random_bytes(16)) . '.' . $logoFile->guessExtension();
-                $logoFile->move($logoDirectory, $logoFilename);
-                $quoteRequest->setLogo($logoFilename);
+            } catch (FileException $exception) {
+                $form->get('logoFile')->addError(new FormError('Impossible d’enregistrer le logo. Veuillez réessayer avec une image PNG, JPEG ou WebP.'));
+                return $this->render('front/quote_request/new.html.twig', ['form' => $form->createView()], new Response(status: Response::HTTP_UNPROCESSABLE_ENTITY));
             }
 
             $quoteRequest->setCreatedAt(new \DateTimeImmutable());
             $quoteRequest->setStatus(QuoteRequest::STATUS_NEW);
 
-            $entityManager->persist($quoteRequest);
-            $entityManager->flush();
+            try {
+                $entityManager->persist($quoteRequest);
+                $entityManager->flush();
+            } catch (\Throwable $exception) {
+                $logos->delete($quoteRequest->getLogo());
+                throw $exception;
+            }
 
             $this->addFlash('success', 'Votre demande de devis a été envoyée avec succès !');
 

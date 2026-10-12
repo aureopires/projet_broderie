@@ -3,6 +3,7 @@
 namespace App\Controller\Front;
 
 use App\Repository\CategoryRepository;
+use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -24,7 +25,7 @@ final class CategoryController extends AbstractController
     }
 
     #[Route('/{slug}', name: 'show')]
-    public function show(string $slug, CategoryRepository $categoryRepository): Response
+    public function show(string $slug, CategoryRepository $categoryRepository, ProductRepository $productRepository): Response
     {
         $category = $categoryRepository->findOneBy(['slug' => $slug]);
 
@@ -34,6 +35,7 @@ final class CategoryController extends AbstractController
 
         return $this->render('front/category/show.html.twig', [
             'category' => $category,
+            'products' => $productRepository->findByCategorySlug($slug),
         ]);
     }
 }

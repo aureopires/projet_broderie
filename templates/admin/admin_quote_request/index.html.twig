@@ -5,6 +5,7 @@
 
     <a href="{{ path('admin_quote_request_new') }}">Créer</a>
 
+    <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
@@ -38,12 +39,7 @@
                 <td>{{ quote_request.markingType }}</td>
                 <td>
                     {% if quote_request.logo %}
-                        <a href="{{ asset('uploads/quote-logos/' ~ quote_request.logo) }}"
-                           target="_blank" rel="noopener">
-                            <img src="{{ asset('uploads/quote-logos/' ~ quote_request.logo) }}"
-                                 alt="Logo de {{ quote_request.name }}"
-                                 style="width: 80px; height: 60px; object-fit: contain;">
-                        </a>
+                        <a href="{{ path('admin_quote_request_logo', {id: quote_request.id}) }}">Télécharger le logo</a>
                     {% else %}
                         Aucun logo
                     {% endif %}
@@ -65,5 +61,6 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
 
 {% endblock %}

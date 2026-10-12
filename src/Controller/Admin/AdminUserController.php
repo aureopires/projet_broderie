@@ -31,11 +31,11 @@ final class AdminUserController extends AbstractController
     ): Response
     {
         $user = new User();
-        $form = $this->createForm(AdminUserType::class, $user);
+        $form = $this->createForm(AdminUserType::class, $user, ['password_required' => true]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $plainPassword = $user->getPassword();
+            $plainPassword = $form->get('plainPassword')->getData();
             if ($plainPassword) {
                 $hashedPassword = $passwordHasher->hashPassword($user, $plainPassword);
                 $user->setPassword($hashedPassword);
@@ -70,18 +70,14 @@ final class AdminUserController extends AbstractController
         UserPasswordHasherInterface $passwordHasher
     ): Response
     {
-        $currentPassword = $user->getPassword();
-
         $form = $this->createForm(AdminUserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $plainPassword = $user->getPassword();
-            if ($plainPassword && $plainPassword !== $currentPassword) {
+            $plainPassword = $form->get('plainPassword')->getData();
+            if ($plainPassword) {
                 $hashedPassword = $passwordHasher->hashPassword($user, $plainPassword);
                 $user->setPassword($hashedPassword);
-            } else {
-                $user->setPassword($currentPassword);
             }
 
             $entityManager->flush();

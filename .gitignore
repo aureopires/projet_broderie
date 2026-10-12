@@ -6,6 +6,7 @@
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
+/private/quote-logos/
 /vendor/
 ###< symfony/framework-bundle ###
 

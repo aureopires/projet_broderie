@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>
             {% block title %}L'Aiguille des Volcans | Atelier de Broderie Artisanale{% endblock %}
         </title>
@@ -15,9 +16,15 @@
         {% endblock %}
     </head>
     <body>
+        <a href="#main-content" class="visually-hidden-focusable skip-link">Aller au contenu</a>
         {% include 'front/common/header.html.twig' %}
         {% include 'common/_alert.html.twig' %}
-        {% block body %}{% endblock %}
+        {% if email_confirmation_enabled and app.user and not app.user.isVerified %}
+            <div class="container py-2">
+                <a href="{{ path('app_verify_email_resend') }}">Confirmer mon adresse e-mail</a>
+            </div>
+        {% endif %}
+        <div id="main-content" tabindex="-1">{% block body %}{% endblock %}</div>
         {% include 'front/common/footer.html.twig' %}
 
         <div class="modal fade" id="gallery-lightbox" tabindex="-1" aria-labelledby="gallery-lightbox-title"

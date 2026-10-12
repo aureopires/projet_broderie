@@ -1,0 +1,388 @@
+Contexte :
+
+L’aiguille des volcans est un atelier de broderie , personnalisation et de couture. L’atelier propose des créations sur mesure destinées aux particuliers, entreprise aux associations et collectivités avec un savoir faire artisanal mettant l’accent sur la qualité, la créativité et le souci du détail.
+
+Le but du site est de présenter l’atelier, les produits, valoriser l’univers et donner envie aux personnes de travailler avec moi.  Mais aussi de développer la visibilité de l’atelier d’inspirer confiance grâce à une présentation professionnelle et de créer des espaces ou les visiteurs pourront découvrir les possibilités de personnalisation, consulter une portfolio de réalisations et obtenir des informations sur les services proposés.
+
+Le site devra être moderne, intuitif afin d’offrir une navigation fluide sur ordinateur, tablette et smartphone.  Il reflètera les valeurs de  l’atelier : la créativité, la qualité et la proximité avec les clients.
+
+Objectifs du site :
+
+Présenter clairement les services proposés ( broderie, personnalisation textile et accessoires, couture et créations sur mesure)
+
+Mettre en valeur le savoir-faire de l’atelier à travers une galerie photos des réalisations
+
+Renforcer la crédibilité et l’image de marque de l’entreprise grâce à un site au design soigné moderne et cohérent.
+
+Faciliter la prise de contact des clients grâce à un formulaire de contact et des informations facilement accessibles.
+
+Permettre aux visiteurs de demander un devis personnalisé selon leurs besoins.
+
+Développer la notoriété de l’atelier en améliorant sa présence sur internet et son référencement.
+
+Offrir une expérience utilisateur simple, intuitive et adaptée à tous les supports.
+
+Inciter les visiteurs à passer à l’action en demandant un devis, en prenant contact ou en découvrant les différentes réalisations de l’atelier.
+
+Arborescence du site :
+
+Accueil
+
+Présentation de l’atelier
+
+Réalisations récentes
+
+Pour qui ?
+
+Avis clients
+
+Appel à l’action ( bouton demander un devis)
+
+A propos
+
+Mon histoire
+
+Mon savoir faire
+
+Mes valeurs
+
+Mon atelier
+
+Prestations
+
+Broderie personnalisée
+
+Personnalisation textile
+
+Couture et retouches
+
+Créations sur mesure
+
+Galerie
+
+Broderie
+
+Personnalisation textile et accessoires
+
+Créations couture
+
+Réalisations pour les professionnels
+
+Demander un devis
+
+Formulaire de demande
+
+Téléchargement d’un visuel ou logo
+
+Description du projet
+
+Coordonnées du client
+
+Actualités / blog ???
+
+Contact
+
+Formulaire de contact
+
+Coordonnées
+
+Horaires
+
+Plan d’accès
+
+Liens vers les réseaux sociaux
+
+Mentions légales
+
+Politique de confidentialité
+
+Menu principal :
+
+6 onglets :
+
+Accueil
+
+A propos
+
+Prestations
+
+Galerie
+
+Demande de devis
+
+Contact
+
+1.
+
+Présentation de l’atelier :
+
+Bienvenue dans mon atelier de broderie, personnalisation textile et de couture, un espace où créativité, savoir-faire et passion se rencontrent pour donner vie à chacun de vos projets.
+
+Je vous accompagne dans la réalisation de créations uniques et personnalisées que vous soyez un particulier une entreprise une association ou une collectivité. Chaque projet est conçu avec soin en tenant compte de vos envies et de vos besoins afin de vous proposer un résultat de qualité qui vous ressemble.
+
+Mes prestations comprennent de la broderie personnalisée sur différents textiles, la personnalisation de vêtements et d’accessoires ainsi que des travaux de couture retouche et des créations sur mesure. Que ce soit pour un cadeau, une tenue professionnelle ou un projet personnel, je mets mon expertise à votre service pour créer des pièces uniques et durables.
+
+A travers mon atelier, je souhaite valoriser le travail artisanal, l’écoute et la proximité avec les clients. Chaque réalisation est effectuée avec minutie et le souci du détail dans le but de vous offrir un  produit à la hauteur de vos attentes.
+
+Réalisations récentes :
+
+photos à mettre à jour 1 fois par mois
+
+Pour qui ?
+
+Pour les particuliers
+
+Faites plaisir ou faites-vous plaisir! Rendez vos moments en souvenirs  inoubliables grâce à des textiles personnalisés
+
+Vous êtes professionnels?
+
+Je vous aide à transformer votre image d’entreprise grâce à la broderie la sublimation ou bien le flocage
+
+Les associations
+
+Développez  l'esprit d'équipe et l'identité de votre association
+
+En bas de page les avis clients
+
+et un encart avec demander un devis qui mène vers un formulaire à remplir ( peut être un forms )
+
+2.
+
+Mon histoire :
+
+Je m’appelle Océane et j’ai créé mon atelier de broderie « L’Aiguille des volcans »  situé aux alentours de Clermont Ferrand (63), avec l’envie de faire vivre une passion transmise depuis plusieurs générations.
+
+Avant de me lancer dans le textile, j’ai exercé le métier de prothésiste dentaire. Un métier de précision qui m’a appris la rigueur, la minutie  et le sens du détail. Des qualités qui aujourd’hui m’accompagnent dans chacune de mes créations.
+
+Depuis plus de 6 ans, la couture fait partie de mon quotidien. Inspirée par mes grandes mères toutes deux couturières et passionnées de broderie à la main. J’ai grandi avec l’amour du travail manuel ainsi que du savoir-faire manuel.
+
+Aujourd’hui à travers L’Aiguille des Volcans, je mets cet héritage au service des professionnels, des associations et des particuliers en proposant des créations et personnalisations textiles de qualité.
+
+Chaque projet est réalisé avec soin, avec pour objectif de proposer des réalisations uniques, durables et fidèles à l’image de chaque client.
+
+J’ai également choisi de travailler principalement avec des fournisseurs basés en France et en Europe afin de garantir des produits de qualité, réduire les délais d’approvisionnement et de proposer des textiles conçus pour durer. Une exigence qui permet d’assurer la longévité des broderies et de valoriser votre image dans le temps.
+
+Une photo de moi
+
+Mon savoir-faire :
+
+Chez l’aiguille des volcans chaque création est réalisée avec passion précision et exigence. Mon savoir-faire repose sur l’alliance de mes connaissances et des techniques modernes de broderie afin de proposer des réalisations soignées durables et entièrement personnalisées.
+
+Je dispose des compétences et la passion nécessaires pour effectuer pratiquement tous les types de travaux qui me sont confiés et je m'investis au maximum pour répondre aux besoins et attentes de chaque client.
+
+J’accompagne mes clients dans leurs projets de personnalisation textile qu’il s’agisse de broder un logo sur des vêtements, de personnaliser un cadeau, de créer un trousseau de naissance. Chaque projet bénéficie de la même attention.
+
+Je privilégie des matériaux de qualité et travaille principalement français et européens afin de proposer des textiles résistants et des broderies.
+
+Mes valeurs :
+
+Chez l’aiguille des volcans chaque projet est guidé par des valeurs qui me tiennent à cœur et qui sont au centre de mon travail au quotidien.
+
+Passion et transmission : la couture et la broderie sont bien plus qu’un métier : elles sont une passion familiale transmises depuis plusieurs générations. A travers mon atelier je souhaite faire vivre cet héritage en créant des pièces uniques réalisées avec le même amour du travail bien fait.
+
+Qualité et exigence : je porte une attention particulière à chaque étape de la réalisation , du choix des textiles aux finitions. Mon objectif est de proposer des créations soignées durables et à la hauteur des attentes de mes clients. C’est pourquoi je me tourne vers des fournisseurs français et européens principalement et reconnus pour la qualité de leurs produits.
+
+Ecoute et proximité : chaque projet est unique. Je prends le temps d’échanger avec chacun de mes clients, afin de comprendre leurs besoins de les conseiller de les accompagner dans leur choix. Cette relation de confiance est essentielle pour créer des réalisations qui leur ressemblent.
+
+Mon atelier :
+
+3. Prestations :
+
+Broderie personnalisée : personnaliser vos vêtements accessoires et cadeaux grâce à une broderie de qualité durable et élégante. Logo prénoms motifs ou texte : chaque création est réalisée avec soin.
+
+Personnalisation textile et accessoires : je personnalise vos vêtements professionnels vos tenues d’association, équipement sportif ou textiles publicitaires afin de valoriser votre image.
+
+Couture et retouches : besoin d’une retouche, je réalise différents travaux de couture avec précision pour donner une seconde vie à vos textiles ou créer une pièce unique.
+
+Création sur mesure : envie d’un cadeau personnalisé ou d’une création unique ? ensemble nous imaginons un projet qui vous ressemble adapté à vos envies et à votre budget.
+
+Contact :
+
+Direction artistique :
+
+Univers : moderne chic
+
+Charte graphique : je veux rester dans des couleurs claires fond de page blanc pourquoi reprendre le doré du logo. Je veux un site sobre et épuré et facile à comprendre
+
+Visuel : dans l’idée de la photo ci-dessous
+
+PDF
+Accueil
+Bienvenue dans mon atelier de broderie, personnalisation textile et de couture, un espace où
+créativité, savoir-faire et passion se rencontrent pour donner vie à chacun de vos projets.
+Je vous accompagne dans la réalisation de créations uniques et personnalisées que vous
+soyez un particulier une entreprise une association ou une collectivité. Chaque projet est
+conçu avec soin en tenant compte de vos envies et de vos besoins afin de vous proposer un
+résultat de qualité qui vous ressemble.
+Mes prestations comprennent de la broderie personnalisée sur différents textiles, la
+personnalisation de vêtements et d’accessoires ainsi que des travaux de couture retouche et
+des créations sur mesure. Que ce soit pour un cadeau, une tenue professionnelle ou un projet
+personnel, je mets mon expertise à votre service pour créer des pièces uniques et durables.
+A travers mon atelier, je souhaite valoriser le travail artisanal, l’écoute et la proximité avec les
+clients. Chaque réalisation est effectuée avec minutie et le souci du détail dans le but de vous
+offrir un produit à la hauteur de vos attentes.
+2 OU 3 PHOTOS DES REALISATIONS QUE JE CHANGE ASSEZ SOUVENT 
+Pour qui ? 
+Pour les particuliers 
+Faites plaisir ou faites-
+vous plaisir! Rendez vos
+moments en souvenirs
+inoubliables grâce à
+des textiles
+personnalisés
+Vous êtes 
+professionnels? 
+Je vous aide à
+transformer votre image
+d’entreprise grâce à la
+broderie la sublimation
+ou bien le flocage
+Les associations 
+Développez l'esprit
+d'équipe et l'identité de
+votre association
+DERMANDER UN DEVIS 
+ENCART POUR FAIRE DEFILER LES AVIS CLIENTS 
+
+Mon histoire 
+Je m’appelle Océane et j’ai crée mon atelier de broderie « L’Aiguille des volcans »
+situé aux alentours de Clermont Ferrand (63), avec l’envie de faire vivre une
+passion transmise depuis plusieurs générations.
+Avant de me lancer dans le textile, j’ai exercé le métier de prothésiste dentaire. Un
+métier de précision qui m’a appris la rigueur, la minutie et le sens du détail. Des
+qualités qui aujourd’hui m’accompagnentdans chacune de mes créations.
+Depuis plus de 6 ans, la couture fait partie de mon quotidien. Inspirée par mes
+grandes mères toutes deux couturières et passionnées de broderie à la main. J’ai
+grandi avec l’amour du travail manuel ainsi que du savoir-faire manuel.
+Aujourd’hui à travers L’Aiguille des Volcans, je mets cet héritage au service des
+professionnels, des associations et des particuliers en proposant des créations et
+personnalisations textiles de qualité.
+Chaque projet est réalisé avec soin, avec pour objectif de proposer des
+réalisations uniques, durables et fidèles à l’image de chaque client.
+J’ai également choisi de travailler principalement avec des fournisseurs basés en
+France et en Europe afin de garantir des produits de qualité, réduire les délais
+d’approvisionnement et de proposer des textiles conçus pour durer. Une exigence
+qui permet d’assurer la longévité des broderies et de valoriser votre image dans le
+temps.
+A propos 
+Chez l’aiguille des volcans chaque création est réalisée avec passion précision
+et exigence. Mon savoir-faire repose sur l’alliance de mes connaissances et des
+techniques modernes de broderie afin de proposer des réalisations soignées
+durables et entièrement personnalisées.
+Je dispose des compétences et la passion nécessaires pour effectuer
+pratiquement tous les types de travaux qui me sont confiés et je m'investis au
+maximum pour répondre aux besoins et attentes de chaque client.
+J’accompagne mes clients dans leurs projets de personnalisation textile qu’il
+s’agisse de broder un logo sur des vêtements, de personnaliser un cadeau, de
+créer un trousseau de naissance. Chaque projet bénéficie de la même
+attention.
+Je privilégie des matériaux de qualité et travaille principalement français et
+européens afin de proposer des textiles résistants et des broderies.
+Mes valeurs: 
+Passion et transmission : la
+couture et la broderie sont
+une passion familiale. A
+travers mon atelier je
+souhaite faire vivre cet
+héritage en créant des
+pièces uniques réalisées
+avec le même amour du
+travail bien fait.
+Ecoute et proximité : Je
+prends le temps d’échanger
+afin de comprendre les
+besoins de mes clients de les
+conseiller et accompagner
+dans leur choix. Cette relation
+de confiance est essentielle
+pour créer des réalisations
+qui leur ressemblent.
+Qualité et exigence : je porte une
+attention particulière à chaque
+étape de la réalisation , du choix
+des textiles aux finitions. Mon
+objectif est de proposer des
+créations soignées durables. C’est
+pourquoi je me tourne vers des
+fournisseurs français et européens
+principalement et reconnus pour la
+qualité de leurs produits.
+Mon savoir faire  
+
+L’ atelier 
+L’atelier est équipé d’une 
+machine à broder 15 couleurs 
+de chez maison broderie 
+Je peux broder sur différents
+supports
+Envoyez-moi une photo de votre
+logo et grâce au logiciel Wilcom
+je le transforme en un fichier
+prêt à broder
+Rajouter des photos de l’atelier avec les 
+autres machines 
+Ajouter une photo ou je brode 
+
+Prestations 
+Prestation sur place en 15 minutes : 
+Chez l’aiguille des volcans emmenez nous vos textiles je m’occupe  de la 
+personnalisation ! 
+Broderie Minute : Votre Personnalisation Express Près de Clermont-
+Ferrand sur Volvic 
+Vous avez besoin d'un cadeau unique à la dernière minute, ou vous 
+voulez simplement relooker votre propre textile sans attendre ? 
+Brodez un Prénom en Seulement 15 Minutes !
+Venez avec Votre Textile :Apportez le vêtement ou l'accessoire que 
+vous souhaitez personnaliser (T-shirt, sweat, serviette, doudou etc.).
+Broderie en Direct : En un quart d'heure chrono, je réalise sous vos yeux 
+la broderie que vous avez choisie : un prénom, des initiales, un petit 
+motif simple ( pour les dessins, il faut nous envoyez l'image avant pour 
+voir si la réalisation est possible). 
+Broderie personnalisée : personnaliser vos
+vêtements accessoires et cadeaux grâce à une
+broderie de qualité durable et élégante. Logo
+prénoms motifs ou texte : chaque création est
+réalisée avec soin.
+Personnalisation textile et accessoires : je
+personnalise vos vêtements professionnels
+vos tenues d’association, équipement
+sportif ou textiles publicitaires afin de
+valoriser votre image.
+Création sur mesure : envie d’un cadeau
+personnalisé ou d’une création unique ?
+ensemble nous imaginons un projet qui
+vous ressemble adapté à vos envies et à
+votre budget.
+Couture et retouches : besoin d’une
+retouche, je réalise différents travaux de
+couture avec précision pour donner une
+seconde vie à vos textiles ou créer une
+pièce unique.
+
+
+Galerie 
+Mettre les photos 
+dès que les 
+commandes sont 
+finies 
+
+Demander un devis 
+
+
+Contact 
+Prénom Nom 
+Entité  
+Adresse mail 
+Votre message:  
+Envoyer 
+Je suis joignable par téléphone au 0677895869
+Vous pouvez aussi bien-sur venir à l’Atelier qui se situe au
+4 Route de Clermont 63530 Volvic (Il est préférable de
+téléphoner avant).
+Retrouvez-moi également sur Facebook et Instagram.
+Espace avec image google maps avec le lieu de 
+l’atelier 
+L’Aiguille des Volcans n’est pas un 
+magasin . 
+L’atelier  est ouvert seulement  sur 
+rendez vous 
