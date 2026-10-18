@@ -1,0 +1,97 @@
+PHPUnit 11.5.56 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.9
+Configuration: /var/www/html/phpunit.dist.xml
+
+...............................................................   63 / 63 (100%)
+
+Time: 00:02.693, Memory: 73.50 MB
+
+Admin User Type (App\Tests\Form\AdminUserType)
+ ✔ Existing hash is never displayed or changed by empty password
+ ✔ New user requires password
+
+Category Controller (App\Tests\Controller\CategoryController)
+ ✔ Category displays only repository results with data set "route catégorie"
+ ✔ Category displays only repository results with data set "route catégorie produit"
+ ✔ Category without active products displays empty state with data set "route catégorie"
+ ✔ Category without active products displays empty state with data set "route catégorie produit"
+ ✔ Unknown category returns 404 with data set "route catégorie"
+ ✔ Unknown category returns 404 with data set "route catégorie produit"
+
+Contact Controller (App\Tests\Controller\ContactController)
+ ✔ Valid contact uses domain sender and visitor reply to
+ ✔ Invalid email and empty name do not send mail
+ ✔ Missing csrf does not send mail
+ ✔ Disabled email shows notice only after submission and never sends mail
+ ✔ Mail failure displays error without claiming success
+
+Email Verifier (App\Tests\Security\EmailVerifier)
+ ✔ Signed link confirms user without logged in session
+ ✔ Tampered link does not confirm or persist user
+
+Functional Flows (App\Tests\Controller\FunctionalFlows)
+ ✔ Quote persists with private logo and admin can replace then delete it
+ ✔ Invalid quote does not persist
+ ✔ Review becomes public only after admin approval
+ ✔ Registration sends signed link and confirmation updates account
+
+Login Limiter (App\Tests\Security\LoginLimiter)
+ ✔ Sixth attempt is rejected
+
+Migrate Quote Logos Command (App\Tests\Command\MigrateQuoteLogosCommand)
+ ✔ Dry run and migration preserve file content and names
+
+Product Repository (App\Tests\Repository\ProductRepository)
+ ✔ Category query excludes inactive and other category products
+
+Quote Logo Download (App\Tests\Controller\QuoteLogoDownload)
+ ✔ Anonymous user must log in
+ ✔ Ordinary user is forbidden
+ ✔ Administrator can download with private headers
+ ✔ Missing logo returns 404 for administrator
+
+Quote Logo Storage (App\Tests\Service\QuoteLogoStorage)
+ ✔ Raster is stored with generated name and can be deleted with data set #0
+ ✔ Raster is stored with generated name and can be deleted with data set #1
+ ✔ Raster is stored with generated name and can be deleted with data set #2
+ ✔ Unsafe files cannot be stored with data set "SVG"
+ ✔ Unsafe files cannot be stored with data set "faux PNG"
+ ✔ Traversal and symlinks cannot be read or deleted
+ ✔ Legacy svg is not downloadable
+ ✔ Storage failure raises file exception
+
+Quote Logo Type (App\Tests\Form\QuoteLogoType)
+ ✔ File content extension and size are checked with data set "PNG valide"
+ ✔ File content extension and size are checked with data set "SVG interdit"
+ ✔ File content extension and size are checked with data set "SVG renommé PNG"
+ ✔ File content extension and size are checked with data set "extension PHP"
+ ✔ File content extension and size are checked with data set "limite 15 Mo"
+
+Quote Request Type (App\Tests\Form\QuoteRequestType)
+ ✔ Valid request without optional fields is accepted
+ ✔ Invalid field is rejected by server with data set "articleType vide"
+ ✔ Invalid field is rejected by server with data set "articleOrigin vide"
+ ✔ Invalid field is rejected by server with data set "markingType vide"
+ ✔ Invalid field is rejected by server with data set "quantity vide"
+ ✔ Invalid field is rejected by server with data set "firstName vide"
+ ✔ Invalid field is rejected by server with data set "lastName vide"
+ ✔ Invalid field is rejected by server with data set "organizationType vide"
+ ✔ Invalid field is rejected by server with data set "email vide"
+ ✔ Invalid field is rejected by server with data set "phone vide"
+ ✔ Invalid field is rejected by server with data set "message vide"
+ ✔ Invalid field is rejected by server with data set "articleType espaces"
+ ✔ Invalid field is rejected by server with data set "firstName espaces"
+ ✔ Invalid field is rejected by server with data set "lastName espaces"
+ ✔ Invalid field is rejected by server with data set "email espaces"
+ ✔ Invalid field is rejected by server with data set "phone espaces"
+ ✔ Invalid field is rejected by server with data set "message espaces"
+ ✔ Invalid field is rejected by server with data set "email invalide"
+ ✔ Invalid field is rejected by server with data set "quantité zéro"
+ ✔ Invalid field is rejected by server with data set "quantité négative"
+ ✔ Invalid field is rejected by server with data set "quantité non numérique"
+ ✔ Invalid field is rejected by server with data set "origine inconnue"
+ ✔ Invalid field is rejected by server with data set "marquage inconnu"
+ ✔ Invalid field is rejected by server with data set "organisme inconnu"
+
+OK (63 tests, 229 assertions)
