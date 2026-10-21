@@ -23,20 +23,11 @@ Renseigner `MAILER_DSN` dans la configuration privée de production. Ne pas enre
 
 Si SSH est disponible, les commandes Symfony s’exécutent depuis le dossier du projet avec le binaire PHP compatible de l’hébergement. [Documentation officielle OVH sur SSH](https://docs.ovhcloud.com/en/guides/web-cloud/web-hosting/ssh-on-webhosting). Sans SSH, prévoir la préparation locale des dépendances et un moyen d’administration fourni par l’hébergement ; ne pas exposer un script de console PHP dans une URL publique.
 
-## Transfert des logos existants
+## Stockage des logos de devis
 
-Le nouveau stockage est `private/quote-logos`, hors de `public` et hors de `var` pour éviter de le perdre lors du nettoyage d’un cache. Ce dossier doit être conservé entre les livraisons et inclus dans les sauvegardes. Le processus PHP doit pouvoir le lire et y écrire ; les fichiers ne doivent pas être lisibles par le serveur statique.
+Les nouveaux logos sont enregistrés dans `private/quote-logos`, hors de `public` et de `var` pour éviter de les perdre lors du nettoyage du cache. Ce dossier doit être conservé entre les livraisons et inclus dans les sauvegardes. Le processus PHP doit pouvoir le lire et y écrire ; les fichiers ne doivent pas être lisibles par le serveur statique.
 
-Avec un accès console, commencer par :
-
-```text
-php bin/console app:quote-logos:migrate --dry-run --env=prod
-php bin/console app:quote-logos:migrate --env=prod
-```
-
-La commande préserve les noms enregistrés en base, refuse les collisions et n’écrase aucun fichier. Elle n’effectue aucune migration SQL. Elle doit être exécutée sur le serveur public : le déplacement réalisé localement ne déplace pas les fichiers de l’hébergement.
-
-Avec FileZilla uniquement, sauvegarder les logos du serveur, créer le dossier privé, transférer les fichiers sans changer leurs noms, vérifier chaque téléchargement depuis un compte administrateur, puis retirer les exemplaires du dossier public après avoir vérifié la copie et conservé la sauvegarde. Vérifier que les anciennes URL publiques ne livrent plus les fichiers. Les anciens SVG ou GIF sont conservés par la commande, mais ne sont pas proposés au téléchargement : les convertir en PNG, JPEG ou WebP avant de les remplacer dans l’administration.
+Les données de devis utilisées pendant le développement étant fictives, aucune migration automatique des anciens logos n’est prévue. Avant la mise en ligne, si `public/uploads/quote-logos` contient des fichiers correspondant à des devis à conserver, sauvegarder ces fichiers, les transférer manuellement vers `private/quote-logos` sans changer leurs noms, vérifier leur téléchargement depuis un compte administrateur, puis retirer les exemplaires publics après validation de la copie. Vérifier que les anciennes URL publiques ne livrent plus les fichiers. Les anciens SVG ou GIF ne sont pas proposés au téléchargement : les convertir en PNG, JPEG ou WebP avant de les remplacer dans l’administration.
 
 ## Vérifications avant ouverture publique
 

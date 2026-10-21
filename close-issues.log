@@ -1,0 +1,42 @@
+Início: Mon Oct 19 10:17:30 CEST 2026
+----
+Mon Oct 19 10:17:31 CEST 2026 - Processando #11 (milestone title: "3 - Modélisation et Base de Données Relationnelle (Doctrine & MariaDB)")
+Mon Oct 19 10:17:31 CEST 2026 - Milestone resolvido: 3
+Mon Oct 19 10:17:31 CEST 2026 - comment HTTP 422
+Mon Oct 19 10:17:32 CEST 2026 - edit HTTP 200 (payload: {"state":"closed","milestone": 3})
+----
+Mon Oct 19 10:17:33 CEST 2026 - Processando #12 (milestone title: "4 - Sécurité et Composants Métier (Symfony Security)")
+Mon Oct 19 10:17:33 CEST 2026 - Milestone resolvido: 4
+Mon Oct 19 10:17:34 CEST 2026 - comment HTTP 422
+Mon Oct 19 10:17:35 CEST 2026 - edit HTTP 200 (payload: {"state":"closed","milestone": 4})
+----
+Mon Oct 19 10:17:36 CEST 2026 - Processando #13 (milestone title: "4 - Sécurité et Composants Métier (Symfony Security)")
+Mon Oct 19 10:17:36 CEST 2026 - Milestone resolvido: 4
+Mon Oct 19 10:17:37 CEST 2026 - comment HTTP 422
+Mon Oct 19 10:17:38 CEST 2026 - edit HTTP 200 (payload: {"state":"closed","milestone": 4})
+----
+Mon Oct 19 10:17:39 CEST 2026 - Processando #14 (milestone title: "4 - Sécurité et Composants Métier (Symfony Security)")
+Mon Oct 19 10:17:39 CEST 2026 - Milestone resolvido: 4
+Mon Oct 19 10:17:40 CEST 2026 - comment HTTP 422
+Mon Oct 19 10:17:41 CEST 2026 - edit HTTP 200 (payload: {"state":"closed","milestone": 4})
+----
+Mon Oct 19 10:17:42 CEST 2026 - Processando #15 (milestone title: "5 - Interfaces Utilisateur, Design et Internationalisation")
+Mon Oct 19 10:17:42 CEST 2026 - Milestone resolvido: 5
+Mon Oct 19 10:17:43 CEST 2026 - comment HTTP 422
+Mon Oct 19 10:17:44 CEST 2026 - edit HTTP 200 (payload: {"state":"closed","milestone": 5})
+----
+Mon Oct 19 10:17:45 CEST 2026 - Processando #17 (milestone title: "5 - Interfaces Utilisateur, Design et Internationalisation")
+Mon Oct 19 10:17:45 CEST 2026 - Milestone resolvido: 5
+Mon Oct 19 10:17:45 CEST 2026 - comment HTTP 422
+Mon Oct 19 10:17:46 CEST 2026 - edit HTTP 200 (payload: {"state":"closed","milestone": 5})
+----
+Mon Oct 19 10:17:47 CEST 2026 - Processando #18 (milestone title: "6 - Back-Office Administrateur et Front-Office (Architecture en Couches)")
+Mon Oct 19 10:17:47 CEST 2026 - Milestone resolvido: 6
+Mon Oct 19 10:17:48 CEST 2026 - comment HTTP 422
+Mon Oct 19 10:17:49 CEST 2026 - edit HTTP 200 (payload: {"state":"closed","milestone": 6})
+----
+Mon Oct 19 10:17:50 CEST 2026 - Processando #19 (milestone title: "6 - Back-Office Administrateur et Front-Office (Architecture en Couches)")
+Mon Oct 19 10:17:50 CEST 2026 - Milestone resolvido: 6
+Mon Oct 19 10:17:51 CEST 2026 - comment HTTP 422
+Mon Oct 19 10:17:52 CEST 2026 - edit HTTP 200 (payload: {"state":"closed","milestone": 6})
+Fim: Mon Oct 19 10:17:53 CEST 2026

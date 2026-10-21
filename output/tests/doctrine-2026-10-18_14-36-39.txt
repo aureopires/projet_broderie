@@ -1,0 +1,11 @@
+
+Mapping
+-------
+
+ [OK] The mapping files are correct.                                            
+
+Database
+--------
+
+ [OK] The database schema is in sync with the mapping files.                    
+
