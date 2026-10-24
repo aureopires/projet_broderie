@@ -8,6 +8,8 @@
 /var/
 /private/quote-logos/
 /vendor/
+/tmp/
+/docs/
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
