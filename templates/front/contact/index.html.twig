@@ -16,18 +16,6 @@
     <section class="py-5 bg-white">
         <div class="container">
 
-            <!-- Mensagens de Feedback (Sucesso / Erro) -->
-            <div class="row justify-content-center mb-4">
-                <div class="col-lg-10">
-                    {% for message in app.flashes('success') %}
-                        <div class="alert alert-success">{{ message }}</div>
-                    {% endfor %}
-                    {% for message in app.flashes('error') %}
-                        <div class="alert alert-danger">{{ message }}</div>
-                    {% endfor %}
-                </div>
-            </div>
-
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="row align-items-start g-4">

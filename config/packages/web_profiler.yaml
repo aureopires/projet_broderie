@@ -1,13 +1,16 @@
 when@dev:
     web_profiler:
-        toolbar: true
+        toolbar: false
+        intercept_redirects: false
+
 
     framework:
+        disallow_search_engine_index: false
         profiler:
             collect_serializer_data: true
 
 when@test:
     framework:
         profiler:
-            collect: false
+            collect: true
             collect_serializer_data: true

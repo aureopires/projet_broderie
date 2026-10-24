@@ -1,12 +1,13 @@
 
 {% for label, messages in app.flashes %}
     {% for message in messages %}
-        <div class="alert alert-{{ label }} d-flex align-items-center" role="alert">
-            {% if label == 'danger' %}
+        {% set alert_type = label in ['error', 'verify_email_error'] ? 'danger' : label %}
+        <div class="alert alert-{{ alert_type }} d-flex align-items-center" role="alert">
+            {% if alert_type == 'danger' %}
                 <i class="fa-solid fa-triangle-exclamation"></i>
-            {% elseif label == 'warning' %}
+            {% elseif alert_type == 'warning' %}
                 <i class="fa-solid fa-triangle-exclamation"></i>
-            {% elseif label == 'success' %}
+            {% elseif alert_type == 'success' %}
                 <i class="fa-solid fa-circle-check"></i>
             {% endif %}
             <div class="ms-2">{{ message }}</div>
